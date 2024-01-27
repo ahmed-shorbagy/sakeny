@@ -4,6 +4,9 @@ const kLightPrimaryColor = Color(0xffB2FCFB);
 const kDarkPrimaryColor = Color(0xff78D7D5);
 
 ThemeData lightTheme = ThemeData(
+  elevatedButtonTheme: const ElevatedButtonThemeData(
+      style: ButtonStyle(
+          backgroundColor: MaterialStatePropertyAll<Color>(Color(0xffFFB74D)))),
   brightness: Brightness.light,
   primaryColor: kLightPrimaryColor,
   colorScheme: const ColorScheme.light(
@@ -25,6 +28,13 @@ ThemeData lightTheme = ThemeData(
 );
 
 ThemeData darkTheme = ThemeData(
+  elevatedButtonTheme: const ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStatePropertyAll<Color>(
+        Color(0xffFFB74D),
+      ),
+    ),
+  ),
   primaryColor: kDarkPrimaryColor,
   colorScheme: const ColorScheme.dark(
     background: Color(0xff121212),

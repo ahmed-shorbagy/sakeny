@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sakeny/Features/splash/presentation/views/splash_view.dart';
 import 'package:sakeny/core/theme/theme_manager.dart';
+import 'package:sakeny/core/utils/App_router.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -16,10 +17,10 @@ class Sakeny extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: Provider.of<ThemeProvider>(context).themeData,
       debugShowCheckedModeBanner: false,
-      home: const SplashView(),
+      routerConfig: AppRouter.router,
     );
   }
 }
