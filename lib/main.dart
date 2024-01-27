@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sakeny/Features/splash/presentation/views/splash_view.dart';
+import 'package:sakeny/core/theme/theme_manager.dart';
 
 void main() {
-  runApp(const Sakeny());
+  runApp(ChangeNotifierProvider(
+      create: (context) {
+        return ThemeProvider();
+      },
+      child: const Sakeny()));
 }
 
 class Sakeny extends StatelessWidget {
@@ -10,8 +16,10 @@ class Sakeny extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SplashView(),
+    return MaterialApp(
+      theme: Provider.of<ThemeProvider>(context).themeData,
+      debugShowCheckedModeBanner: false,
+      home: const SplashView(),
     );
   }
 }

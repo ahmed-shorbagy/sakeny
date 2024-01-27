@@ -6,6 +6,16 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Sakeny</string>
+	<key>CFBundleIcons</key>
+    <dict>
+    	<key>CFBundlePrimaryIcon</key>
+    	<dict>
+        	<key>CFBundleIconFiles</key>
+        	<array>
+            	<string>ic_launcher</string>
+        	</array>
+    	</dict>
+    </dict>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
