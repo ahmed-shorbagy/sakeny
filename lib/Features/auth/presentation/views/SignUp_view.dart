@@ -5,8 +5,8 @@ import 'package:sakeny/Features/auth/presentation/views/widgets/custom_shape_sta
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_underLine_textField.dart';
 import 'package:sakeny/core/utils/App_router.dart';
 
-class SignInView extends StatelessWidget {
-  const SignInView({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class SignInView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const CustomShapeStack(
-              label: "Login",
+              label: "Sign up",
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
@@ -42,7 +42,7 @@ class SignInView extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
               child: CustomButton(
-                label: 'Log in',
+                label: 'Sign up',
               ),
             ),
             Row(
@@ -50,15 +50,15 @@ class SignInView extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 6),
-                  child: Text('Dont have account?',
+                  child: Text('Already have account?',
                       style: Theme.of(context).textTheme.bodyMedium),
                 ),
                 GestureDetector(
                   onTap: () {
-                    GoRouter.of(context).pushReplacement(AppRouter.kSignUpView);
+                    GoRouter.of(context).pushReplacement(AppRouter.kSignInView);
                   },
                   child: Text(
-                    'Create now',
+                    'Sign in',
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium!
