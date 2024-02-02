@@ -28,6 +28,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  google_sign_in: 
   connectivity_plus: ^5.0.2
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
@@ -38,6 +39,7 @@ dependencies:
   flutter_bloc: ^8.1.3
   flutter_launcher_icons: ^0.13.1
   flutter_svg: ^2.0.9
+  font_awesome_icon_class: ^0.0.6
   go_router: ^13.0.1
   google_fonts: ^6.1.0
   provider: ^6.1.1

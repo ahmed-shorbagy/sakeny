@@ -5,13 +5,22 @@ class CustomUnderLineTextField extends StatelessWidget {
     super.key,
     required this.label,
     this.suffixIcon,
+    required this.onChanged,
   });
   final String label;
   final Widget? suffixIcon;
+  final void Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return ' This field is required';
+        }
+        return null;
+      },
+      onChanged: onChanged,
       cursorColor: Theme.of(context).colorScheme.outline,
       decoration: InputDecoration(
           suffix: suffixIcon,

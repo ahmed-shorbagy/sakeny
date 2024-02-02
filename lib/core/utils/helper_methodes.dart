@@ -6,7 +6,12 @@ void snackBar(BuildContext context, String massage) {
     behavior: SnackBarBehavior.floating,
     width: 200,
     shape: const StadiumBorder(),
-    content: Center(child: Text(massage)),
+    content: Center(
+        child: Text(
+      massage,
+      textAlign: TextAlign.center,
+      maxLines: 2,
+    )),
     padding: const EdgeInsets.all(12),
     duration: const Duration(seconds: 2),
   ));
