@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
 import 'package:sakeny/Features/auth/data/repos/auth_repo.dart';
 

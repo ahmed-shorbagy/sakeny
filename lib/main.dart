@@ -5,14 +5,16 @@ import 'package:provider/provider.dart';
 import 'package:sakeny/core/errors/simple_bloc_observer.dart';
 import 'package:sakeny/core/theme/theme_manager.dart';
 import 'package:sakeny/core/utils/App_router.dart';
+import 'package:sakeny/core/utils/service_locator.dart';
 import 'package:sakeny/firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
+  setupServiceLocator();
   runApp(ChangeNotifierProvider(
       create: (context) {
         return ThemeProvider();

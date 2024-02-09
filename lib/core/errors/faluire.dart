@@ -17,6 +17,7 @@ class FirebaseFaluire extends Faluire {
 
       case "ERROR_WRONG_PASSWORD":
       case "wrong-password":
+      case "invalid-credential":
       case "[firebase_auth/invalid-credential] The supplied auth credential is incorrect, malformed or has expired.":
         return FirebaseFaluire(errMessage: "Wrong email/password combination.");
 
@@ -49,5 +50,9 @@ class FirebaseFaluire extends Faluire {
       default:
         return FirebaseFaluire(errMessage: "Login failed. Please try again.");
     }
+  }
+
+  factory FirebaseFaluire.fromFireStore(String exception) {
+    return FirebaseFaluire(errMessage: exception);
   }
 }
