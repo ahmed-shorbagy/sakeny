@@ -7,7 +7,7 @@ class CustomButton extends StatelessWidget {
     required this.onPressed,
   });
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(

@@ -24,9 +24,7 @@ class _HomeViewState extends State<HomeView> {
     log(
       UserCubit.user.isStudent.toString(),
     );
-    log(
-      UserCubit.user.selectedUniversity.toString(),
-    );
+
     log(
       UserCubit.user.photoUrl ?? 'nooo',
     );
