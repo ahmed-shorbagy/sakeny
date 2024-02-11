@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:sakeny/Features/auth/data/repos/auth_repo.dart';
-import 'package:sakeny/Features/auth/presentation/views/widgets/custom_button.dart';
+import 'package:sakeny/Features/home/presentation/views/widgets/custom_bottom_bar.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_list_view_item.dart';
+import 'package:sakeny/Features/home/presentation/views/widgets/custom_sliver_app_bar.dart';
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
-import 'package:sakeny/core/utils/size_config.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -40,28 +40,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
-        SliverAppBar(
-          floating: true,
-          actions: [
-            CustomButton(
-                onPressed: () {},
-                child: const Icon(
-                  Icons.tune_outlined,
-                )),
-            SizedBox(
-              width: SizeConfig.screenwidth! * 0.04,
-            )
-          ],
-          expandedHeight: SizeConfig.screenhieght! * 0.1,
-          backgroundColor: Colors.transparent,
-          title: Text(
-            'Hello, ${UserCubit.user.name}',
-            style: Theme.of(context)
-                .textTheme
-                .headlineSmall!
-                .copyWith(fontWeight: FontWeight.bold),
-          ),
-        ),
+        const CustomSliverAppBar(),
         SliverList.builder(
             itemCount: 6,
             itemBuilder: (context, index) {
@@ -69,8 +48,9 @@ class _HomeViewState extends State<HomeView> {
                 padding: EdgeInsets.all(8),
                 child: CustomListViewItem(),
               );
-            })
+            }),
       ]),
+      bottomNavigationBar: const CustomBottomBar(),
     );
   }
 }

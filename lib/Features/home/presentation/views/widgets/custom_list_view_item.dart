@@ -27,7 +27,7 @@ class CustomListViewItem extends StatelessWidget {
                   color: Theme.of(context).colorScheme.secondary, width: 2)),
           image: const DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage('assets/pngs/358708657.jpg'),
+            image: AssetImage('assets/pngs/65a298f587054754141479.jpeg'),
           ),
         ),
         height: SizeConfig.screenhieght! * 0.31,
@@ -36,7 +36,7 @@ class CustomListViewItem extends StatelessWidget {
           top: SizeConfig.defaultSize,
           right: SizeConfig.defaultSize! * 2,
           child: CircleAvatar(
-            backgroundColor: Colors.grey.shade300,
+            backgroundColor: Colors.grey.withOpacity(0.4),
             child: IconButton(
                 onPressed: () {}, icon: const Icon(Icons.favorite_outline)),
           )),
@@ -62,10 +62,8 @@ class CustomListViewItem extends StatelessWidget {
                       padding: const EdgeInsets.only(right: 16),
                       child: Text(
                         '4',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyLarge!
-                            .copyWith(color: Colors.white),
+                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     )
                   ],
@@ -93,7 +91,9 @@ class CustomListViewItem extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!
-                              .copyWith(color: Colors.white),
+                              .copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                         ),
                       )
                     ],
