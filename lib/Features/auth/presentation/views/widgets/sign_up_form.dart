@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +13,6 @@ import 'package:sakeny/Features/auth/presentation/views/widgets/custom_google_bu
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_shape_stack.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_underLine_textField.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/sign_up_bottom_text.dart';
-import 'package:sakeny/core/models/User_model.dart';
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/App_router.dart';
 import 'package:sakeny/core/utils/helper_methodes.dart';
