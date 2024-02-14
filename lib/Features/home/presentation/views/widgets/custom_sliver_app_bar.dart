@@ -84,7 +84,8 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar>
           width: SizeConfig.screenwidth! * 0.04,
         )
       ],
-      backgroundColor: Colors.transparent,
+      backgroundColor: Theme.of(context).colorScheme.background,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       title: Text(
         'Hello, ${UserCubit.user.name}',
         style: Theme.of(context)

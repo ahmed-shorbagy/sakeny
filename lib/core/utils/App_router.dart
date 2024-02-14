@@ -30,72 +30,31 @@ abstract class AppRouter {
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
-        path: kSignInView,
-        builder: (context, state) => MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (context) =>
-                      SignInEmailPasswordCubit(getIt.get<AuthRepo>()),
-                ),
-                BlocProvider(
-                  create: (context) => GoogleSignInCubit(getIt.get<AuthRepo>()),
-                ),
-                BlocProvider(
-                  create: (context) => NewUserCubit(getIt.get<AuthRepo>()),
-                ),
-                BlocProvider(
-                  create: (context) => GetUserDataCubit(getIt.get<AuthRepo>()),
-                ),
-                BlocProvider(
-                  create: (context) => ChangePasswordCubit(),
-                ),
-              ],
-              child: const SignInView(),
-            ),
-        pageBuilder: (context, state) {
-          return basicTransition(
-              child: MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) =>
-                    SignInEmailPasswordCubit(getIt.get<AuthRepo>()),
-              ),
-              BlocProvider(
-                create: (context) => GoogleSignInCubit(getIt.get<AuthRepo>()),
-              ),
-              BlocProvider(
-                create: (context) => NewUserCubit(getIt.get<AuthRepo>()),
-              ),
-              BlocProvider(
-                create: (context) => GetUserDataCubit(getIt.get<AuthRepo>()),
-              ),
-              BlocProvider(
-                create: (context) => ChangePasswordCubit(),
-              ),
-            ],
-            child: const SignInView(),
-          ));
-        }),
+      path: kSignInView,
+      builder: (context, state) => MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) =>
+                SignInEmailPasswordCubit(getIt.get<AuthRepo>()),
+          ),
+          BlocProvider(
+            create: (context) => GoogleSignInCubit(getIt.get<AuthRepo>()),
+          ),
+          BlocProvider(
+            create: (context) => NewUserCubit(getIt.get<AuthRepo>()),
+          ),
+          BlocProvider(
+            create: (context) => GetUserDataCubit(getIt.get<AuthRepo>()),
+          ),
+          BlocProvider(
+            create: (context) => ChangePasswordCubit(),
+          ),
+        ],
+        child: const SignInView(),
+      ),
+    ),
     GoRoute(
         path: kSignUpView,
-        builder: (context, state) => MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (context) =>
-                      SignUpWithEmailPasswodCubit(getIt.get<AuthRepo>()),
-                ),
-                BlocProvider(
-                  create: (context) => GoogleSignInCubit(getIt.get<AuthRepo>()),
-                ),
-                BlocProvider(
-                  create: (context) => NewUserCubit(getIt.get<AuthRepo>()),
-                ),
-                BlocProvider(
-                  create: (context) => GetUserDataCubit(getIt.get<AuthRepo>()),
-                ),
-              ],
-              child: const SignUpView(),
-            ),
         pageBuilder: (context, state) {
           return basicTransition(
               child: MultiBlocProvider(
@@ -119,17 +78,6 @@ abstract class AppRouter {
         }),
     GoRoute(
         path: kUserInfoView,
-        builder: (context, state) => MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (context) => NewUserCubit(getIt.get<AuthRepo>()),
-                ),
-                BlocProvider(
-                  create: (context) => GetUserDataCubit(getIt.get<AuthRepo>()),
-                ),
-              ],
-              child: const UserInfoView(),
-            ),
         pageBuilder: (context, state) {
           return basicTransition(
               child: MultiBlocProvider(

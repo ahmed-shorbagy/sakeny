@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sakeny/Features/auth/data/repos/auth_repo.dart';
+import 'package:sakeny/Features/home/presentation/views/widgets/custom_apartment_type_buttons.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_bottom_bar.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_list_view_item.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_sliver_app_bar.dart';
@@ -28,7 +29,7 @@ class _HomeViewState extends State<HomeView> {
       UserCubit.user.email,
     );
     log(
-      UserCubit.user.isStudent.toString(),
+      UserCubit.user.isMail.toString(),
     );
 
     log(
@@ -44,6 +45,9 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       body: CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
         const CustomSliverAppBar(),
+        const SliverToBoxAdapter(
+          child: AppartmentTypeButtons(),
+        ),
         SliverList.builder(
             itemCount: 6,
             itemBuilder: (context, index) {
@@ -54,7 +58,7 @@ class _HomeViewState extends State<HomeView> {
             }),
       ]),
       bottomNavigationBar: const CustomBottomBar(),
-      floatingActionButton: UserCubit.user.isStudent!
+      floatingActionButton: UserCubit.user.isMail!
           ? FloatingActionButton(
               onPressed: () {
                 GoRouter.of(context).push(AppRouter.kAddNewAppartmentView);

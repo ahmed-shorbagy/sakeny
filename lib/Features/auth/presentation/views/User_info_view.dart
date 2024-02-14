@@ -5,6 +5,7 @@ import 'package:sakeny/Features/auth/data/repos/auth_repo.dart';
 import 'package:sakeny/Features/auth/presentation/manager/New_user_cubit/new_user_cubit.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_phoneField.dart';
+import 'package:sakeny/Features/auth/presentation/views/widgets/custom_radio_buttons.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_row_fo_buttons.dart';
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/App_router.dart';
@@ -55,7 +56,7 @@ class _UserInfoViewState extends State<UserInfoView> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Text(
-                'are you a student or a property owner?',
+                'Tell us more about you',
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),

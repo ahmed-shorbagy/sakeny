@@ -27,13 +27,14 @@ class _CustomRowOfButtonsState extends State<CustomRowOfButtons> {
           child: Container(
             decoration: BoxDecoration(
                 border: Border.all(
+                    width: 2,
                     color: isStudent
                         ? Theme.of(context).colorScheme.secondary
                         : Colors.transparent),
                 borderRadius: BorderRadius.circular(6)),
             child: CustomButton(
                 onPressed: () {
-                  UserCubit.user.isStudent = true;
+                  UserCubit.user.isMail = true;
                   setState(() {
                     isOwner = false;
                     isStudent = true;
@@ -43,15 +44,15 @@ class _CustomRowOfButtonsState extends State<CustomRowOfButtons> {
                 child: Column(
                   children: [
                     SizedBox(
-                      width: SizeConfig.screenwidth! * 0.3,
+                      width: SizeConfig.screenwidth! * 0.2,
                       child: const Text(
-                        'Iam a colloge  student',
+                        'Male',
                         textAlign: TextAlign.center,
                         maxLines: 2,
                       ),
                     ),
                     const Text(
-                      '👨‍🎓',
+                      '♂️',
                       style: TextStyle(fontSize: 24),
                     ),
                   ],
@@ -63,13 +64,14 @@ class _CustomRowOfButtonsState extends State<CustomRowOfButtons> {
           child: Container(
             decoration: BoxDecoration(
                 border: Border.all(
+                    width: 2,
                     color: isOwner
                         ? Theme.of(context).colorScheme.secondary
                         : Colors.transparent),
                 borderRadius: BorderRadius.circular(6)),
             child: CustomButton(
                 onPressed: () {
-                  UserCubit.user.isStudent = false;
+                  UserCubit.user.isMail = false;
                   setState(() {
                     isOwner = true;
                     isStudent = false;
@@ -79,15 +81,15 @@ class _CustomRowOfButtonsState extends State<CustomRowOfButtons> {
                 child: Column(
                   children: [
                     SizedBox(
-                      width: SizeConfig.screenwidth! * 0.3,
+                      width: SizeConfig.screenwidth! * 0.2,
                       child: const Text(
-                        'Iam a property owner',
+                        'Female',
                         textAlign: TextAlign.center,
                         maxLines: 2,
                       ),
                     ),
                     const Text(
-                      '🏘️',
+                      '♀️',
                       style: TextStyle(fontSize: 24),
                     ),
                   ],

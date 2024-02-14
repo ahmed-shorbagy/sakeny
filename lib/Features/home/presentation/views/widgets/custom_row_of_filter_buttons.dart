@@ -11,6 +11,7 @@ class RowOfFilterButtons extends StatefulWidget {
 
 bool isSingle = false;
 bool isDouble = false;
+bool isTriple = false;
 
 class _RowOfFilterButtonsState extends State<RowOfFilterButtons> {
   @override
@@ -32,8 +33,7 @@ class _RowOfFilterButtonsState extends State<RowOfFilterButtons> {
             ),
             onPressed: () {
               setState(() {
-                isSingle = true;
-                isDouble = false;
+                isSingle = !isSingle;
               });
             },
             child:
@@ -54,12 +54,32 @@ class _RowOfFilterButtonsState extends State<RowOfFilterButtons> {
             ),
             onPressed: () {
               setState(() {
-                isSingle = false;
-                isDouble = true;
+                isDouble = !isDouble;
               });
             },
             child:
                 Text("Double", style: Theme.of(context).textTheme.bodyMedium!),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: OutlinedButton(
+            style: ButtonStyle(
+              side: MaterialStatePropertyAll<BorderSide>(
+                BorderSide(
+                    color: isTriple
+                        ? Theme.of(context).colorScheme.secondary
+                        : Colors.transparent,
+                    width: 2),
+              ),
+            ),
+            onPressed: () {
+              setState(() {
+                isTriple = !isTriple;
+              });
+            },
+            child:
+                Text("Triple", style: Theme.of(context).textTheme.bodyMedium!),
           ),
         ),
       ],
