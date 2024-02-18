@@ -1,12 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
+import 'package:sakeny/Features/home/data/Models/apartment_model.dart';
 import 'package:sakeny/core/utils/size_config.dart';
 
 class CustomListViewItem extends StatelessWidget {
   const CustomListViewItem({
     super.key,
+    required this.apartment,
   });
-
+  final ApartmentModel apartment;
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -25,9 +28,11 @@ class CustomListViewItem extends StatelessWidget {
                   color: Theme.of(context).colorScheme.secondary, width: 2),
               left: BorderSide(
                   color: Theme.of(context).colorScheme.secondary, width: 2)),
-          image: const DecorationImage(
+          image: DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage('assets/pngs/65a298f587054754141479.jpeg'),
+            image: CachedNetworkImageProvider(
+              apartment.photosUrls?.first ?? '',
+            ),
           ),
         ),
         height: SizeConfig.screenhieght! * 0.31,
@@ -61,7 +66,7 @@ class CustomListViewItem extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 16),
                       child: Text(
-                        '4',
+                        '${apartment.numberOfDoubleRooms! + apartment.numberOfSingleRooms!.toInt() + apartment.numberOfTripleRooms!.toInt()} ',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
@@ -87,7 +92,7 @@ class CustomListViewItem extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(right: 16),
                         child: Text(
-                          '1200',
+                          '${apartment.priceOfOneBedInDoubleroom}',
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!

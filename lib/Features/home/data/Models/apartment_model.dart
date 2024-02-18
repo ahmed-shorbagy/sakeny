@@ -10,8 +10,10 @@ class ApartmentModel {
   double? priceOfOneBedInDoubleroom;
   double? priceOfOneBedInTripleroom;
   bool? isForMales;
+  Timestamp? time;
 
   ApartmentModel({
+    this.time,
     this.isForMales,
     this.buildingID,
     this.photosUrls,
@@ -30,6 +32,7 @@ class ApartmentModel {
     return ApartmentModel(
       buildingID: data['buildingID'],
       isForMales: data['isForMales'],
+      time: data['time'],
       photosUrls: List<String>.from(data['photoUrls'] ?? []),
       numberOfSingleRooms: data['numberOfSingleRooms'],
       numberOfDoubleRooms: data['numberOfDoubleRooms'],
@@ -44,6 +47,7 @@ class ApartmentModel {
     return {
       'isForMales': isForMales,
       'photoUrls': photosUrls,
+      'time': time,
       'numberOfSingleRooms': numberOfSingleRooms,
       'numberOfDoubleRooms': numberOfDoubleRooms,
       'numberOfTripleRooms': numberOfTripleRooms,
