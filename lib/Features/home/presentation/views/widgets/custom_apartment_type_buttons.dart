@@ -59,7 +59,7 @@ class _AppartmentTypeButtonsState extends State<AppartmentTypeButtons> {
               });
             },
             child: Text("Females only",
-                style: Theme.of(context).textTheme.bodyMedium!),
+                style: Theme.of(context).textTheme.bodyLarge!),
           ),
         ),
       ],
