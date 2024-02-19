@@ -41,10 +41,12 @@ class _HomeViewState extends State<HomeView> {
       setState(() {
         pageNumber++;
       });
-      log(pageNumber.toString());
+
       // Fetch new data based on the incremented pageNumber
-      BlocProvider.of<FetchApartmentsCubit>(context)
-          .fetchApartments(pageNumber: pageNumber);
+
+      BlocProvider.of<FetchApartmentsCubit>(context).fetchApartments(
+          pageNumber: pageNumber, query: FetchApartmentsCubit.currentQuery);
+      log(pageNumber.toString());
     }
   }
 
@@ -60,7 +62,9 @@ class _HomeViewState extends State<HomeView> {
           ),
           BlocBuilder<FetchApartmentsCubit, FetchApartmentsState>(
             bloc: BlocProvider.of<FetchApartmentsCubit>(context)
-              ..fetchApartments(pageNumber: pageNumber),
+              ..fetchApartments(
+                  pageNumber: pageNumber,
+                  query: FetchApartmentsCubit.currentQuery),
             builder: (context, state) {
               if (state is FetchApartmentsSuccess) {
                 apartments.addAll(state.apartmentsList);
@@ -92,6 +96,7 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 );
               } else if (state is FetchApartmentsFaluire) {
+                log(state.errMessage);
                 return const SliverFillRemaining(
                   child: Center(
                     child: Text('Oops! Something went wrong.'),

@@ -1,19 +1,18 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sakeny/Features/home/data/Models/apartment_model.dart';
 import 'package:sakeny/core/errors/faluire.dart';
 
 class HomeRepo {
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final int apartmentsPerPage =
-      10; // Adjust the number of apartments per page as needed
+      8; // Adjust the number of apartments per page as needed
   DocumentSnapshot? lastDocument; // Track the last document seen
 
   Future<Either<Faluire, List<ApartmentModel>>> fetchApartments(
-      {int pageNumber = 1}) async {
+      {int pageNumber = 1, required Query query}) async {
     try {
-      Query query = _firestore.collection('Apartments').orderBy('time');
-
       // If pageNumber > 1, start after the last document seen
       if (pageNumber > 1 && lastDocument != null) {
         query = query.startAfterDocument(lastDocument!);
@@ -35,6 +34,7 @@ class HomeRepo {
 
       return Right(apartments);
     } on FirebaseException catch (e) {
+      log(e.toString());
       return left(FirebaseFaluire.fromFireStore(e.code));
     }
   }

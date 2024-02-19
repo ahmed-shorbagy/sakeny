@@ -98,8 +98,13 @@ abstract class AppRouter {
         path: kHomeView,
         pageBuilder: (context, state) {
           return stylishSideTransition(
-              child: BlocProvider(
-            create: (context) => FetchApartmentsCubit(getIt.get<HomeRepo>()),
+              child: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    FetchApartmentsCubit(getIt.get<HomeRepo>()),
+              ),
+            ],
             child: const HomeView(),
           ));
         }),

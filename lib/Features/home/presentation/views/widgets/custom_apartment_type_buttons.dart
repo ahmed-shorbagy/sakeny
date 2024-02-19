@@ -1,4 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
+import 'package:sakeny/Features/home/presentation/views/home_view.dart';
 
 class AppartmentTypeButtons extends StatefulWidget {
   const AppartmentTypeButtons({
@@ -30,11 +34,20 @@ class _AppartmentTypeButtonsState extends State<AppartmentTypeButtons> {
                     width: 2),
               ),
             ),
-            onPressed: () {
+            onPressed: () async {
+              FetchApartmentsCubit.currentQuery = FirebaseFirestore.instance
+                  .collection('Apartments')
+                  .where('isForMales', isEqualTo: true)
+                  .orderBy('time', descending: true);
               setState(() {
                 isForMales = true;
                 isForFemales = false;
               });
+              apartments.clear();
+
+              await BlocProvider.of<FetchApartmentsCubit>(context)
+                  .fetchApartments(
+                      pageNumber: 1, query: FetchApartmentsCubit.currentQuery);
             },
             child: Text("Males only",
                 style: Theme.of(context).textTheme.bodyLarge!),
@@ -52,11 +65,20 @@ class _AppartmentTypeButtonsState extends State<AppartmentTypeButtons> {
                     width: 2),
               ),
             ),
-            onPressed: () {
+            onPressed: () async {
+              FetchApartmentsCubit.currentQuery = FirebaseFirestore.instance
+                  .collection('Apartments')
+                  .where('isForMales', isEqualTo: false)
+                  .orderBy('time', descending: true);
               setState(() {
                 isForMales = false;
                 isForFemales = true;
               });
+              apartments.clear();
+
+              await BlocProvider.of<FetchApartmentsCubit>(context)
+                  .fetchApartments(
+                      pageNumber: 1, query: FetchApartmentsCubit.currentQuery);
             },
             child: Text("Females only",
                 style: Theme.of(context).textTheme.bodyLarge!),

@@ -405,6 +405,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutterflow_paginate_firestore:
+    dependency: "direct main"
+    description:
+      name: flutterflow_paginate_firestore
+      sha256: e58afde2c4d6db1ee0c3312315852979c79aa44f4010cfd2900b460f3adcb773
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.3+1"
   font_awesome_flutter:
     dependency: transitive
     description:
