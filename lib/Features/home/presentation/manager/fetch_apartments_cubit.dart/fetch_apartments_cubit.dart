@@ -10,6 +10,7 @@ class FetchApartmentsCubit extends Cubit<FetchApartmentsState> {
   static Query currentQuery = FirebaseFirestore.instance
       .collection('Apartments')
       .orderBy('time', descending: true);
+
   FetchApartmentsCubit(this.homeRepo) : super(FetchApartmentsInitial());
 
   final HomeRepo homeRepo;
