@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_row_of_filter_buttons.dart';
-import 'package:sakeny/Features/home/presentation/views/widgets/custom_slider.dart';
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/size_config.dart';
 
@@ -35,7 +34,7 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar>
                   context: context,
                   builder: (BuildContext context) {
                     return Container(
-                      height: SizeConfig.screenhieght! * 0.4,
+                      height: SizeConfig.screenhieght! * 0.3,
                       color: Theme.of(context).colorScheme.background,
                       child: Center(
                         child: Column(
@@ -53,37 +52,20 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar>
                                     .copyWith(fontWeight: FontWeight.bold),
                               ),
                             ),
-                            const RowOfFilterButtons(),
                             Divider(
-                              thickness: 1,
+                              thickness: 2,
                               indent: 10,
                               endIndent: 10,
                               color: Colors.grey.shade300,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 8),
-                              child: Text(
-                                'Price',
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge!
-                                    .copyWith(fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            const CustomSlider(),
                             const Spacer(),
                             Padding(
                               padding: const EdgeInsets.all(16),
                               child: CustomButton(
-                                  onPressed: () {
-                                    BlocProvider.of<FetchApartmentsCubit>(
-                                            context)
-                                        .fetchApartments(
-                                            pageNumber: 1,
-                                            query: FetchApartmentsCubit
-                                                .currentQuery);
+                                  onPressed: () async {
+                                    setState(() {});
+
+                                    setState(() {});
                                   },
                                   child: Text(
                                     'Apply',

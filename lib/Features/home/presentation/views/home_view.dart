@@ -17,7 +17,6 @@ class HomeView extends StatefulWidget {
 }
 
 int pageNumber = 1;
-List<ApartmentModel> apartments = [];
 
 class _HomeViewState extends State<HomeView> {
   final ScrollController _scrollController = ScrollController();
@@ -58,7 +57,7 @@ class _HomeViewState extends State<HomeView> {
         slivers: const [
           CustomSliverAppBar(),
           SliverToBoxAdapter(
-            child: AppartmentTypeButtons(),
+            child: AppartmentFilterButtons(),
           ),
           CutomListBlocBuilder(),
         ],

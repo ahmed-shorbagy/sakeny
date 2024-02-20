@@ -31,7 +31,8 @@ class CustomListViewItem extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.fill,
             image: CachedNetworkImageProvider(
-              apartment.photosUrls?.first ?? '',
+              (apartment.photosUrls?.firstOrNull) ??
+                  'https://firebasestorage.googleapis.com/v0/b/sakeny-40c01.appspot.com/o/apartment_photos%2F1708446492339?alt=media&token=a61fe5fe-f821-408d-8b41-dc2c23ea4f52',
             ),
           ),
         ),
@@ -66,7 +67,7 @@ class CustomListViewItem extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 16),
                       child: Text(
-                        '${apartment.numberOfDoubleRooms! + apartment.numberOfSingleRooms!.toInt() + apartment.numberOfTripleRooms!.toInt()} ',
+                        '${int.parse(apartment.numberOfDoubleBeds!) + int.parse(apartment.numberOfSingleBeds!) + int.parse(apartment.numberOfTripleBeds!)} ',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
@@ -92,7 +93,7 @@ class CustomListViewItem extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(right: 16),
                         child: Text(
-                          '${apartment.priceOfOneBedInDoubleroom}',
+                          '${apartment.priceOfOneBedInDoubleBeds}',
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!
