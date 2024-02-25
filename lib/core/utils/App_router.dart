@@ -12,9 +12,10 @@ import 'package:sakeny/Features/auth/presentation/views/SignUp_view.dart';
 import 'package:sakeny/Features/auth/presentation/views/User_info_view.dart';
 import 'package:sakeny/Features/auth/presentation/views/sePassword_view.dart';
 import 'package:sakeny/Features/auth/presentation/views/signIn_view.dart';
+import 'package:sakeny/Features/home/data/Models/apartment_model.dart';
 import 'package:sakeny/Features/home/data/Repos/home_repo.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
-import 'package:sakeny/Features/home/presentation/views/add_new_appartment_view.dart';
+import 'package:sakeny/Features/home/presentation/views/apatment_details_view.dart';
 import 'package:sakeny/Features/home/presentation/views/home_view.dart';
 import 'package:sakeny/Features/splash/presentation/views/splash_view.dart';
 import 'package:sakeny/core/utils/service_locator.dart';
@@ -26,6 +27,7 @@ abstract class AppRouter {
   static const String kUserInfoView = '/UserInfoView';
   static const String kChangePasswordView = '/ChangePasswordView';
   static const String kAddNewAppartmentView = '/AddNewAppartmentView';
+  static const String kAppartmentdetailsView = '/AppartmentdetailsView';
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -118,7 +120,18 @@ abstract class AppRouter {
     GoRoute(
       path: kAddNewAppartmentView,
       pageBuilder: (context, state) {
-        return basicTransition(child: const AddNewAppartmentView());
+        return basicTransition(
+            child: ApartmentDetailsView(
+          apartment: state.extra as ApartmentModel,
+        ));
+      },
+    ),
+    GoRoute(
+      path: kAppartmentdetailsView,
+      pageBuilder: (context, state) {
+        return basicTransition(
+            child:
+                ApartmentDetailsView(apartment: state.extra as ApartmentModel));
       },
     ),
   ]);

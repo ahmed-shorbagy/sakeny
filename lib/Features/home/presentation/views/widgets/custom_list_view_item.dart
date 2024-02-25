@@ -8,35 +8,40 @@ class CustomListViewItem extends StatelessWidget {
   const CustomListViewItem({
     super.key,
     required this.apartment,
+    required this.onTaped,
   });
   final ApartmentModel apartment;
+  final VoidCallback onTaped;
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Container(
-        decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(16),
-          border: Border(
-              bottom: BorderSide(
-                  style: BorderStyle.solid,
-                  color: Theme.of(context).colorScheme.secondary,
-                  width: 2),
-              top: BorderSide(
-                  color: Theme.of(context).colorScheme.secondary, width: 2),
-              right: BorderSide(
-                  color: Theme.of(context).colorScheme.secondary, width: 2),
-              left: BorderSide(
-                  color: Theme.of(context).colorScheme.secondary, width: 2)),
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: CachedNetworkImageProvider(
-              (apartment.photosUrls?.firstOrNull) ??
-                  'https://firebasestorage.googleapis.com/v0/b/sakeny-40c01.appspot.com/o/apartment_photos%2F1708446492339?alt=media&token=a61fe5fe-f821-408d-8b41-dc2c23ea4f52',
+      GestureDetector(
+        onTap: onTaped,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.circular(16),
+            border: Border(
+                bottom: BorderSide(
+                    style: BorderStyle.solid,
+                    color: Theme.of(context).colorScheme.secondary,
+                    width: 2),
+                top: BorderSide(
+                    color: Theme.of(context).colorScheme.secondary, width: 2),
+                right: BorderSide(
+                    color: Theme.of(context).colorScheme.secondary, width: 2),
+                left: BorderSide(
+                    color: Theme.of(context).colorScheme.secondary, width: 2)),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: CachedNetworkImageProvider(
+                (apartment.photosUrls?.firstOrNull) ??
+                    'https://firebasestorage.googleapis.com/v0/b/sakeny-40c01.appspot.com/o/apartment_photos%2F1708446492339?alt=media&token=a61fe5fe-f821-408d-8b41-dc2c23ea4f52',
+              ),
             ),
           ),
+          height: SizeConfig.screenhieght! * 0.31,
         ),
-        height: SizeConfig.screenhieght! * 0.31,
       ),
       Positioned(
           top: SizeConfig.defaultSize,
