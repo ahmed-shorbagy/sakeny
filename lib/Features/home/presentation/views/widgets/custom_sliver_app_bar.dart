@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_button.dart';
-import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
-import 'package:sakeny/Features/home/presentation/views/widgets/custom_row_of_filter_buttons.dart';
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/size_config.dart';
 
