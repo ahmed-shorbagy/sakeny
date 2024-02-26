@@ -27,7 +27,7 @@ class RowOfApartmentDetails extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            '$price ' r'$',
+            '$price ' r' EGP',
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),

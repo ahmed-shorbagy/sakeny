@@ -15,6 +15,7 @@ import 'package:sakeny/Features/auth/presentation/views/signIn_view.dart';
 import 'package:sakeny/Features/home/data/Models/apartment_model.dart';
 import 'package:sakeny/Features/home/data/Repos/home_repo.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
+import 'package:sakeny/Features/home/presentation/manager/request_cubit/requests_cubit.dart';
 import 'package:sakeny/Features/home/presentation/views/apatment_details_view.dart';
 import 'package:sakeny/Features/home/presentation/views/home_view.dart';
 import 'package:sakeny/Features/home/presentation/views/thank_you_view.dart';
@@ -132,8 +133,10 @@ abstract class AppRouter {
       path: kAppartmentdetailsView,
       pageBuilder: (context, state) {
         return basicTransition(
-            child:
-                ApartmentDetailsView(apartment: state.extra as ApartmentModel));
+            child: BlocProvider(
+          create: (context) => RequestsCubit(getIt.get<HomeRepo>()),
+          child: ApartmentDetailsView(apartment: state.extra as ApartmentModel),
+        ));
       },
     ),
     GoRoute(

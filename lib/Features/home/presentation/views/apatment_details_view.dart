@@ -56,6 +56,7 @@ class ApartmentDetailsView extends StatelessWidget {
                 child: ExpansionTile(
                   title: Text('Description',
                       style: Theme.of(context).textTheme.bodyLarge),
+                  iconColor: Theme.of(context).colorScheme.primary,
                   shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(
@@ -67,9 +68,12 @@ class ApartmentDetailsView extends StatelessWidget {
                   children: [Text('${apartment.userDescription}')],
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
-                child: RentalButtons(),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+                child: RentalButtons(
+                  apartment: apartment,
+                ),
               )
             ],
           ),

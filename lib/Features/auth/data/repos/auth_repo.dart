@@ -101,7 +101,7 @@ class AuthRepo {
 
       if (query.exists) {
         final userData = query.data() as Map<String, dynamic>;
-        final user = UserModel.fromFireStore(userData);
+        final user = UserModel.fromFirestore(userData);
         return Right(user);
       } else {
         return Left(FirebaseFaluire.fromFirebaseAuth('User not found'));
