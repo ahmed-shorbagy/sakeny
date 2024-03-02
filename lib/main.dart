@@ -7,6 +7,7 @@ import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit
 import 'package:sakeny/core/errors/simple_bloc_observer.dart';
 import 'package:sakeny/core/theme/theme_manager.dart';
 import 'package:sakeny/core/utils/App_router.dart';
+import 'package:sakeny/core/utils/firebase_messaging_api.dart';
 import 'package:sakeny/core/utils/service_locator.dart';
 import 'package:sakeny/firebase_options.dart';
 
@@ -16,6 +17,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await FireBaseAPi().initNotifications();
+
   setupServiceLocator();
   runApp(ChangeNotifierProvider(
       create: (context) {

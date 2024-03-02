@@ -4,11 +4,13 @@ class UserModel {
   String? photoUrl;
   String? phoneNumber;
   bool? isMail;
+  String? fcmToken;
 
   UserModel({
     required this.email,
     required this.name,
     this.photoUrl,
+    this.fcmToken,
     this.phoneNumber,
     this.isMail,
   });
@@ -16,6 +18,7 @@ class UserModel {
   factory UserModel.fromFirestore(Map<String, dynamic> data) {
     return UserModel(
       email: data['email'],
+      fcmToken: data['fcmToken'],
       name: data['name'],
       photoUrl: data['photoUrl'],
       phoneNumber: data['phoneNumber'],
@@ -30,6 +33,7 @@ class UserModel {
       'photoUrl': photoUrl,
       'phoneNumber': phoneNumber,
       'isMail': isMail,
+      'fcmToken': fcmToken
     };
   }
 }

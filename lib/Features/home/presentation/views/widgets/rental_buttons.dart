@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -7,6 +9,7 @@ import 'package:sakeny/Features/home/data/Models/request_model.dart';
 import 'package:sakeny/Features/home/presentation/manager/request_cubit/requests_cubit.dart';
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/App_router.dart';
+import 'package:sakeny/core/utils/firebase_messaging_api.dart';
 import 'package:sakeny/core/utils/helper_methodes.dart';
 
 class RentalButtons extends StatelessWidget {
@@ -34,6 +37,9 @@ class RentalButtons extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: CustomButton(
                       onPressed: () async {
+                        await FireBaseAPi().sendMessage(
+                            title: 'new request',
+                            messageBody: 'user ahmed has request to access ');
                         RequestModel request = RequestModel(
                             apartment: apartment,
                             user: UserCubit.user,
