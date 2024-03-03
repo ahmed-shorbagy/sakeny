@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -38,12 +40,15 @@ class RentalButtons extends StatelessWidget {
                   child: CustomButton(
                       onPressed: () async {
                         await FireBaseAPi().sendMessage(
-                            title: 'new request',
-                            messageBody: 'user ahmed has request to access ');
+                          title: 'new request',
+                          messageBody:
+                              'user ${UserCubit.user.name} has request a new bed',
+                        );
                         RequestModel request = RequestModel(
                             apartment: apartment,
                             user: UserCubit.user,
-                            bedType: BedType.single);
+                            bedType: BedType.single,
+                            requestTime: Timestamp.now());
                         await BlocProvider.of<RequestsCubit>(context)
                             .addNEwRequest(request: request);
                       },
@@ -59,10 +64,16 @@ class RentalButtons extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: CustomButton(
                       onPressed: () async {
+                        await FireBaseAPi().sendMessage(
+                          title: 'new request',
+                          messageBody:
+                              'user ${UserCubit.user.name} has request a new bed',
+                        );
                         RequestModel request = RequestModel(
                             apartment: apartment,
                             user: UserCubit.user,
-                            bedType: BedType.doublee);
+                            bedType: BedType.doublee,
+                            requestTime: Timestamp.now());
                         await BlocProvider.of<RequestsCubit>(context)
                             .addNEwRequest(request: request);
                       },
@@ -78,10 +89,16 @@ class RentalButtons extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: CustomButton(
                       onPressed: () async {
+                        await FireBaseAPi().sendMessage(
+                          title: 'new request',
+                          messageBody:
+                              'user ${UserCubit.user.name} has request a new bed',
+                        );
                         RequestModel request = RequestModel(
                             apartment: apartment,
                             user: UserCubit.user,
-                            bedType: BedType.triple);
+                            bedType: BedType.triple,
+                            requestTime: Timestamp.now());
                         await BlocProvider.of<RequestsCubit>(context)
                             .addNEwRequest(request: request);
                       },

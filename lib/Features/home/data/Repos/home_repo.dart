@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sakeny/Features/home/data/Models/apartment_model.dart';
@@ -7,16 +5,15 @@ import 'package:sakeny/Features/home/data/Models/request_model.dart';
 import 'package:sakeny/core/errors/faluire.dart';
 
 class HomeRepo {
-  final int apartmentsPerPage =
-      8; // Adjust the number of apartments per page as needed
-  DocumentSnapshot? lastDocument; // Track the last document seen
+  final int apartmentsPerPage = 8;
+  DocumentSnapshot? lastDocument;
+  static Set<String> fetchedDocumentIds = {}; // Track fetched document IDs
 
   Future<Either<Faluire, List<ApartmentModel>>> fetchApartments({
     int pageNumber = 1,
     required Query query,
   }) async {
     try {
-      // If pageNumber > 1, start after the last document seen
       if (pageNumber > 1 && lastDocument != null) {
         query = query.startAfterDocument(lastDocument!);
       }
@@ -26,14 +23,22 @@ class HomeRepo {
 
       final List<ApartmentModel> apartments = [];
       for (final doc in querySnapshot.docs) {
-        apartments.add(ApartmentModel.fromFirestore(
-            doc as QueryDocumentSnapshot<Map<String, dynamic>>));
+        final apartmentId = doc.id;
+        // Check if document ID is already fetched
+        if (!fetchedDocumentIds.contains(apartmentId)) {
+          apartments.add(ApartmentModel.fromFirestore(
+              doc as QueryDocumentSnapshot<Map<String, dynamic>>));
+          // Add fetched document ID to the set
+          fetchedDocumentIds.add(apartmentId);
+        }
       }
 
       return Right(apartments);
     } on FirebaseException catch (e) {
       return Left(FirebaseFaluire.fromFireStore(e.code));
     }
+
+    // Other methods...
   }
 
   Future<Either<Faluire, void>> addNewRequestToFirestore(

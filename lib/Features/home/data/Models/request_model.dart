@@ -12,26 +12,31 @@ class RequestModel {
   ApartmentModel apartment;
   UserModel user;
   BedType bedType; // Added field for bed type
+  Timestamp? requestTime;
 
   RequestModel(
-      {required this.apartment, required this.user, required this.bedType});
+      {required this.apartment,
+      required this.user,
+      required this.bedType,
+      this.requestTime});
 
   factory RequestModel.fromFirestore(
       DocumentSnapshot<Map<String, dynamic>> snapshot) {
     Map<String, dynamic> data = snapshot.data()!;
     return RequestModel(
-      apartment: ApartmentModel.fromFirestore(data['apartment']),
-      user: UserModel.fromFirestore(data['user']),
-      bedType:
-          _parseBedType(data['bedType']), // Parse bed type from Firestore data
-    );
+        apartment: ApartmentModel.fromFirestore(data['apartment']),
+        user: UserModel.fromFirestore(data['user']),
+        bedType: _parseBedType(data['bedType']),
+        requestTime: data['requestTime'] // Parse bed type from Firestore data
+        );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'apartment': apartment.toMap(),
       'user': user.toMap(),
-      'bedType': _encodeBedType(bedType), // Encode bed type for Firestore
+      'bedType': _encodeBedType(bedType),
+      'requestTime': requestTime
     };
   }
 
@@ -39,7 +44,7 @@ class RequestModel {
     switch (value) {
       case 'single':
         return BedType.single;
-      case 'double':
+      case 'doublee':
         return BedType.doublee;
       case 'triple':
         return BedType.triple;

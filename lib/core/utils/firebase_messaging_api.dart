@@ -15,7 +15,15 @@ class FireBaseAPi {
   final firebaseMessaging = FirebaseMessaging.instance;
 
   Future<void> initNotifications() async {
-    await firebaseMessaging.requestPermission();
+    await firebaseMessaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
     final fcmToken = await firebaseMessaging.getToken();
     log('token : $fcmToken');
     FirebaseMessaging.onBackgroundMessage(handleBackGroundMessage);
@@ -23,11 +31,11 @@ class FireBaseAPi {
 
   Future<void> sendMessage(
       {required String title, required String messageBody}) async {
+    var newAccesToken = await AccessTokenFirbase().getAccessToken();
     var headersList = {
       'Accept': '*/*',
       'User-Agent': 'Thunder Client (https://www.thunderclient.com)',
-      'Authorization':
-          'Bearer ya29.c.c0AY_VpZhszJTkbx2T9G2gh_CO6pMMZAOB1ewxdy9huif8gZqPj5-6HDsoGVbH78lfvB9vIK6hnQsn1P1j_e42NfxhocA7JvlO2WJbdYCXv4IjKwULwGiID5TKSYr7AviWhJVNppgobpzVECauXWVQHXZoizS8ps5NO_VXJ6caWjBKJJGOMaabkkPQGU1LIphhUARLEsoxDbZGNhemxdYYzyuW1cQ5JeX1TOjv1xtfFpXECOFavoCq-5aaHEAIa6y3Az0-CduzeKpyHjKPEvFIUdwj77Jxb29jFQJ4Faya5qWLEJS4BO398mSfx1oVxt7rlLzTIgLWXzVSYm6t9zEx3iscfwocCFiyJxYRsx1-gbzH-MOZ9LFfeoZfT385PVuqcrc9_aV2Jj0e71nQgIMW3go1o8WRuV3nZmlyfzmZwadUbu7xcpVWobkkXgzB9_MFb7MJ18v4s4eBc4miBmFVbd_s02c9qS45wQfY45vr0sun2sax0chseVkoYtOzJWhW7-2o5iFoSOW2lk8sRzv_F2_8In3d8s1eu_ZlwmQ4fX8Wsd48XVtleOx-2myexmU02h92BqObS4hXf4jBudJVdVJ2YangO0pm09rh1XgpBFt8km6Ya1U9Wq-qaWO58Q4wzfZyv3lJOVboi2xr3Wv7v3SO-Xslcua3Reu7ZBak-4Q9wJMoQgVBvVyq96g_Xsz6IflIiabe0kFjprsvms2VmorSssZ6mJlB0MrU7az9opWVicO9_JjuXUdSVjn66Vp9fBVdvFn70Rt7QcY8_5zilbwUi4Mb5h9pqvyjs3WsyFjx4BOZX8n1lSF_is0gYBzyawjbenog-_tx42Vn7f7qutez8FkXJrfn93vBlBkIds5SYdOscnFpByMQ6BS_0UZeXXeSqh0QxYb4w5JdXqmWWOwm-R-8w4_JVmoQZMOjpn9niykRf0eQ7dSkipWq0-gYaWve6qI-7Fz_rutai3afZRxOd6eYZeg56bkSUh5yqfe12oBnhouJlaq',
+      'Authorization': 'Bearer $newAccesToken',
       'Content-Type': 'application/json'
     };
     var url = Uri.parse(
@@ -36,7 +44,7 @@ class FireBaseAPi {
     var body = {
       "message": {
         "token":
-            "eb2Yw2hVTEeyIUkmAQ7lel:APA91bHA4qM-GJeNM_Q3QeCVNSyVMbP9OM2j8YEIVt7LNDUJ96zkocrNRO4JXve_Lr39EHHuN-SNoUe1u0R5A72m8D7M1w2zzpBj0USzLwZ61TVvsCZ7y3LWxar39xvTyyHSjvQCZM6B",
+            "fAXllIqWSz6DfjMxbilHR5:APA91bHIIW6_19Q62UjxhMi5cQAyWq25YfSOpI948IEOH5_9QtSkrJRCVPDX-4WjPCfXU9GUGgKa110U4RLQ55NaqpDBnVSYzLvA_Fqvt9Q7p_qIZUQx82eAJ0g18O8x20r3PvqhdLef",
         "notification": {"title": title, "body": messageBody}
       }
     };
@@ -80,6 +88,8 @@ class AccessTokenFirbase {
         }),
         [firebaseMessagingScope]);
     final accesToken = client.credentials.accessToken.data;
+
+    log(accesToken);
     return accesToken;
   }
 }

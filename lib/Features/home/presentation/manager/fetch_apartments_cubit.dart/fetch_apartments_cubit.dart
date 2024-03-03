@@ -41,6 +41,7 @@ class FetchApartmentsCubit extends Cubit<FetchApartmentsState> {
     required bool isForFemales,
   }) async {
     apartments.clear();
+    HomeRepo.fetchedDocumentIds.clear();
     emit(FetchApartmentsLoading());
 
     // Start with the base query
@@ -51,10 +52,10 @@ class FetchApartmentsCubit extends Cubit<FetchApartmentsState> {
     if (isSingle) types.add('single');
     if (isDouble) types.add('double');
     if (isTriple) types.add('triple');
-    log(types.toString());
+
     // If no bed type is selected, show all types
     if (types.isNotEmpty) {
-      query = query.where('type', arrayContainsAny: types);
+      query = query.where('type', whereIn: types);
     }
 
     // Apply gender preference filter
@@ -75,6 +76,8 @@ class FetchApartmentsCubit extends Cubit<FetchApartmentsState> {
       (apartmentList) {
         apartments.addAll(apartmentList);
         emit(FetchApartmentsSuccess(apartmentList));
+        log('***********************************');
+        log(types.toString());
       },
     );
   }
