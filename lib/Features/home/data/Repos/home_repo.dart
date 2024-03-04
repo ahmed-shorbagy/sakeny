@@ -27,7 +27,7 @@ class HomeRepo {
         // Check if document ID is already fetched
         if (!fetchedDocumentIds.contains(apartmentId)) {
           apartments.add(ApartmentModel.fromFirestore(
-              doc as QueryDocumentSnapshot<Map<String, dynamic>>));
+              doc as DocumentSnapshot<Map<String, dynamic>>));
           // Add fetched document ID to the set
           fetchedDocumentIds.add(apartmentId);
         }

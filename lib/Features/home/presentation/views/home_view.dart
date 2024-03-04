@@ -62,7 +62,6 @@ class _HomeViewState extends State<HomeView> {
           CutomListBlocBuilder(),
         ],
       ),
-      bottomNavigationBar: const CustomBottomBar(),
     );
   }
 }

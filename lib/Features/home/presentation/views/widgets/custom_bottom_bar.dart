@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
+import 'package:go_router/go_router.dart';
+import 'package:sakeny/core/utils/App_router.dart';
 
 class CustomBottomBar extends StatelessWidget {
   const CustomBottomBar({
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +17,36 @@ class CustomBottomBar extends StatelessWidget {
           label: 'Profile',
         ),
         BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.house), label: 'Home'),
-        BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Favorites'),
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.favorite),
+          label: 'Favorites',
+        ),
       ],
       currentIndex: 1,
-      type: BottomNavigationBarType.shifting,
+      type: BottomNavigationBarType
+          .fixed, // Use fixed type if you want all items to be displayed
       selectedItemColor: Theme.of(context).colorScheme.secondary,
       showUnselectedLabels: true,
-      unselectedItemColor: Theme.of(context).colorScheme.outline,
-      onTap: (index) {},
+      unselectedItemColor: Theme.of(context).colorScheme.onBackground,
+      onTap: (index) {
+        switch (index) {
+          case 0:
+            // Navigate to Profile page
+            GoRouter.of(context).push(AppRouter.kProfileView);
+            break;
+          case 1:
+            // Navigate to Home page
+            GoRouter.of(context).push(AppRouter.kHomeView);
+            break;
+          case 2:
+            // Navigate to Favorites page
+            GoRouter.of(context).push(AppRouter.kFavoritesView);
+            break;
+        }
+      },
     );
   }
 }

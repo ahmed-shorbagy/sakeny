@@ -38,7 +38,7 @@ class _SignUpFormState extends State<SignUpForm> {
     return BlocListener<GetUserDataCubit, GetUserDataState>(
       listener: (context, state) {
         if (state is GetUserDataSuccess) {
-          GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+          GoRouter.of(context).pushReplacement(AppRouter.kMainView);
           UserCubit.user = state.user;
         } else if (state is GetUserDataFaluire) {
           snackBar(context, state.errMessage);

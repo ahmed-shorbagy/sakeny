@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ApartmentModel {
-  int? buildingID; // Unique identifier for the apartment
+  int? buildingID;
+  String? apartmentID; // Unique identifier for the apartment
   List<String>? photosUrls;
   String? numberOfSingleBeds;
   String? numberOfDoubleBeds;
@@ -17,29 +18,30 @@ class ApartmentModel {
   String? userDescription;
   List<dynamic>? type;
 
-  ApartmentModel({
-    this.ownerName, // Corrected spelling
-    this.type,
-    this.ownerPhone,
-    this.ownerDescription,
-    this.userDescription,
-    this.time,
-    this.isForMales,
-    this.buildingID,
-    this.photosUrls,
-    this.numberOfSingleBeds,
-    this.numberOfDoubleBeds,
-    this.numberOfTripleBeds,
-    this.priceOfOneBedInSingleBeds,
-    this.priceOfOneBedInDoubleBeds,
-    this.priceOfOneBedInTripleBeds,
-  });
+  ApartmentModel(
+      {this.ownerName, // Corrected spelling
+      this.type,
+      this.ownerPhone,
+      this.ownerDescription,
+      this.userDescription,
+      this.time,
+      this.isForMales,
+      this.buildingID,
+      this.photosUrls,
+      this.numberOfSingleBeds,
+      this.numberOfDoubleBeds,
+      this.numberOfTripleBeds,
+      this.priceOfOneBedInSingleBeds,
+      this.priceOfOneBedInDoubleBeds,
+      this.priceOfOneBedInTripleBeds,
+      this.apartmentID});
 
   factory ApartmentModel.fromFirestore(
-      QueryDocumentSnapshot<Map<String, dynamic>> snapshot) {
-    Map<String, dynamic> data = snapshot.data();
+      DocumentSnapshot<Map<String, dynamic>> snapshot) {
+    Map<String, dynamic> data = snapshot.data() ?? {};
     return ApartmentModel(
       type: data['type'],
+      apartmentID: snapshot.id,
       ownerDescription: data['owenrDescription'],
       ownerName: data['owenrName'],
       ownerPhone: data['ownerPhone'],
@@ -60,6 +62,7 @@ class ApartmentModel {
   Map<String, dynamic> toMap() {
     return {
       'type': type,
+
       'ownerName': ownerName, // Corrected spelling
       'ownerPhone': ownerPhone,
       'ownerDescription': ownerDescription,

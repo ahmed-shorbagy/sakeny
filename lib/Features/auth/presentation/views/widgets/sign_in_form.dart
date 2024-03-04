@@ -40,7 +40,7 @@ class _SignInFormState extends State<SignInForm> {
         listener: (context, state) {
           if (state is GetUserDataSuccess) {
             UserCubit.user = state.user;
-            GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+            GoRouter.of(context).pushReplacement(AppRouter.kMainView);
           } else if (state is GetUserDataFaluire) {
             snackBar(context, state.errMessage);
           }
