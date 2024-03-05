@@ -60,7 +60,6 @@ class FavoritesRepository {
       }
       return right(apartmentId);
     } on FirebaseException catch (e) {
-      log('remove favorite error: ${e.code}');
       return left(FirebaseFaluire.fromFireStore(e.code));
     }
   }
@@ -96,10 +95,6 @@ class FavoritesRepository {
               .map((id) => _firestore.collection('Apartments').doc(id).get()));
 
           // Debug: print snapshot data
-          print('Snapshot data:');
-          for (var snapshot in snapshots) {
-            print(snapshot.data());
-          }
 
           // Convert snapshots to ApartmentModel objects
           favoriteApartments.addAll(snapshots
@@ -107,10 +102,6 @@ class FavoritesRepository {
               .toList());
 
           // Debug: print favorite apartments
-          print('Favorite Apartments:');
-          for (var apartment in favoriteApartments) {
-            print(apartment.toMap());
-          }
 
           return Right(favoriteApartments);
         },
