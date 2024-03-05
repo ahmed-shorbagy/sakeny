@@ -45,17 +45,20 @@ class FetchApartmentsCubit extends Cubit<FetchApartmentsState> {
     emit(FetchApartmentsLoading());
 
     // Start with the base query
-    Query query = FirebaseFirestore.instance.collection('Apartments');
+    Query query = FirebaseFirestore.instance
+        .collection('Apartments')
+        .orderBy('time', descending: true);
 
     // Apply filters based on selected options
     List<String> types = [];
-    if (isSingle) types.add('single');
-    if (isDouble) types.add('double');
-    if (isTriple) types.add('triple');
+    if (isSingle || isDouble || isTriple) {
+      if (isSingle) types.add('single');
+      if (isDouble) types.add('double');
+      if (isTriple) types.add('triple');
 
-    // If no bed type is selected, show all types
-    if (types.isNotEmpty) {
-      query = query.where('type', whereIn: types);
+      query = query.where('type',
+          arrayContainsAny:
+              types); // Using arrayContainsAny to match any selected type
     }
 
     // Apply gender preference filter
@@ -66,6 +69,7 @@ class FetchApartmentsCubit extends Cubit<FetchApartmentsState> {
     }
 
     // Execute the query
+    currentQuery = query;
     var result =
         await homeRepo.fetchApartments(pageNumber: pageNumber, query: query);
 

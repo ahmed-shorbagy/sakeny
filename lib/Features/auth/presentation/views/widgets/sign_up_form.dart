@@ -32,6 +32,7 @@ class _SignUpFormState extends State<SignUpForm> {
   late String email;
   late String password;
   late String name;
+  bool isButtonDisabled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -95,20 +96,24 @@ class _SignUpFormState extends State<SignUpForm> {
                 padding:
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
                 child: CustomButton(
-                  onPressed: () {
-                    if (signupformkey.currentState!.validate()) {
-                      signupformkey.currentState!.save();
-                      BlocProvider.of<SignUpWithEmailPasswodCubit>(context)
-                          .signUpWithEmailPassword(
-                              email: email, password: password);
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
-                    }
-                  },
+                  onPressed: isButtonDisabled
+                      ? null
+                      : () {
+                          if (signupformkey.currentState!.validate()) {
+                            signupformkey.currentState!.save();
+                            BlocProvider.of<SignUpWithEmailPasswodCubit>(
+                                    context)
+                                .signUpWithEmailPassword(
+                                    email: email, password: password);
+                          } else {
+                            autovalidateMode = AutovalidateMode.always;
+                          }
+                        },
                   child: BlocConsumer<SignUpWithEmailPasswodCubit,
                       SignUpWithEmailPasswodState>(
                     builder: (context, state) {
                       if (state is SignUpWithEmailPasswodLoading) {
+                        isButtonDisabled = true;
                         return const Center(
                           child: CircularProgressIndicator(
                             color: Colors.white,
@@ -131,6 +136,7 @@ class _SignUpFormState extends State<SignUpForm> {
                         GoRouter.of(context)
                             .pushReplacement(AppRouter.kUserInfoView);
                       } else if (state is SignUpWithEmailPasswodFaluire) {
+                        isButtonDisabled = false;
                         snackBar(context, state.errMessage);
                       }
                     },
@@ -147,10 +153,12 @@ class _SignUpFormState extends State<SignUpForm> {
                 padding: const EdgeInsets.only(
                     left: 120, right: 120, top: 16, bottom: 16),
                 child: CustomGoogleButton(
-                  onPressed: () {
-                    BlocProvider.of<GoogleSignInCubit>(context)
-                        .signInWithGoogle();
-                  },
+                  onPressed: isButtonDisabled
+                      ? null
+                      : () {
+                          BlocProvider.of<GoogleSignInCubit>(context)
+                              .signInWithGoogle();
+                        },
                   child: BlocConsumer<GoogleSignInCubit, GoogleSignInState>(
                     listener: (context, state) async {
                       if (state is GoogleSignInSuccess) {
@@ -169,11 +177,14 @@ class _SignUpFormState extends State<SignUpForm> {
                           }
                         }
                       } else if (state is GoogleSignInFaluire) {
+                        isButtonDisabled = false;
                         snackBar(context, state.errMessage);
                       }
                     },
                     builder: (context, state) {
                       if (state is GoogleSignInLoading) {
+                        isButtonDisabled = true;
+
                         return const Center(
                           child: CircularProgressIndicator(
                             color: Colors.white,

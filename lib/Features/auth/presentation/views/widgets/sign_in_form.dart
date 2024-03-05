@@ -31,6 +31,8 @@ class _SignInFormState extends State<SignInForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   late String email;
   late String password;
+  bool isButtonDisabled = false;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -101,16 +103,18 @@ class _SignInFormState extends State<SignInForm> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
               child: CustomButton(
-                onPressed: () {
-                  if (formkey.currentState!.validate()) {
-                    formkey.currentState!.save();
-                    BlocProvider.of<SignInEmailPasswordCubit>(context)
-                        .signInWithEmailPassword(
-                            email: email, password: password);
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                  }
-                },
+                onPressed: isButtonDisabled
+                    ? null
+                    : () {
+                        if (formkey.currentState!.validate()) {
+                          formkey.currentState!.save();
+                          BlocProvider.of<SignInEmailPasswordCubit>(context)
+                              .signInWithEmailPassword(
+                                  email: email, password: password);
+                        } else {
+                          autovalidateMode = AutovalidateMode.always;
+                        }
+                      },
                 child: BlocConsumer<SignInEmailPasswordCubit,
                     SignInEmailPasswordState>(
                   listener: (context, state) {
@@ -118,11 +122,13 @@ class _SignInFormState extends State<SignInForm> {
                       BlocProvider.of<GetUserDataCubit>(context)
                           .getUserData(uId: auth.currentUser?.uid ?? '');
                     } else if (state is SignInEmailPasswordFaluire) {
+                      isButtonDisabled = false;
                       snackBar(context, state.errMessage);
                     }
                   },
                   builder: (context, state) {
                     if (state is SignInEmailPasswordLoading) {
+                      isButtonDisabled = true;
                       return const Center(
                         child: CircularProgressIndicator(
                           color: Colors.white,
@@ -151,10 +157,12 @@ class _SignInFormState extends State<SignInForm> {
               padding: const EdgeInsets.only(
                   left: 120, right: 120, top: 16, bottom: 16),
               child: CustomGoogleButton(
-                onPressed: () {
-                  BlocProvider.of<GoogleSignInCubit>(context)
-                      .signInWithGoogle();
-                },
+                onPressed: isButtonDisabled
+                    ? null
+                    : () {
+                        BlocProvider.of<GoogleSignInCubit>(context)
+                            .signInWithGoogle();
+                      },
                 child: BlocConsumer<GoogleSignInCubit, GoogleSignInState>(
                   listener: (context, state) async {
                     if (state is GoogleSignInSuccess) {
@@ -174,11 +182,13 @@ class _SignInFormState extends State<SignInForm> {
                         }
                       }
                     } else if (state is GoogleSignInFaluire) {
+                      isButtonDisabled = false;
                       snackBar(context, state.errMessage);
                     }
                   },
                   builder: (context, state) {
                     if (state is GoogleSignInLoading) {
+                      isButtonDisabled = true;
                       return const Center(
                         child: CircularProgressIndicator(
                           color: Colors.white,

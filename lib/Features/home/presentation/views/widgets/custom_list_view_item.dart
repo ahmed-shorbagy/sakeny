@@ -16,77 +16,55 @@ class CustomListViewItem extends StatelessWidget {
   final VoidCallback onTaped;
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      GestureDetector(
-        onTap: onTaped,
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(16),
-            border: Border(
-                bottom: BorderSide(
-                    style: BorderStyle.solid,
-                    color: Theme.of(context).colorScheme.secondary,
-                    width: 2),
-                top: BorderSide(
-                    color: Theme.of(context).colorScheme.secondary, width: 2),
-                right: BorderSide(
-                    color: Theme.of(context).colorScheme.secondary, width: 2),
-                left: BorderSide(
-                    color: Theme.of(context).colorScheme.secondary, width: 2)),
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: CachedNetworkImageProvider(
-                (apartment.photosUrls?.firstOrNull) ??
-                    'https://firebasestorage.googleapis.com/v0/b/sakeny-40c01.appspot.com/o/apartment_photos%2F1708446492339?alt=media&token=a61fe5fe-f821-408d-8b41-dc2c23ea4f52',
-              ),
-            ),
-          ),
-          height: SizeConfig.screenhieght! * 0.31,
-        ),
-      ),
-      Positioned(
-          top: SizeConfig.defaultSize,
-          right: SizeConfig.defaultSize! * 2,
-          child: CircleAvatar(
-            backgroundColor: Colors.grey.withOpacity(0.4),
-            child: CustomFavoriteIcon(
-              apartmentId: apartment.apartmentID ?? '',
-              favoritesRepository: FavoritesRepository(),
-            ),
-          )),
-      Positioned(
-          bottom: SizeConfig.defaultSize,
-          left: SizeConfig.defaultSize! * 2,
-          child: Row(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(8)),
-                child: Row(
-                  children: [
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.bed_sharp,
-                          color: Colors.white,
-                          size: 18,
-                        )),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 16),
-                      child: Text(
-                        '${int.parse(apartment.numberOfDoubleBeds ?? '0') + int.parse(apartment.numberOfSingleBeds ?? '0') + int.parse(apartment.numberOfTripleBeds ?? '0')} ',
-                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    )
-                  ],
+    return Card(
+      elevation: 15,
+      shadowColor: Theme.of(context).colorScheme.outline,
+      child: Stack(children: [
+        GestureDetector(
+          onTap: onTaped,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.red,
+              borderRadius: BorderRadius.circular(16),
+              border: Border(
+                  bottom: BorderSide(
+                      style: BorderStyle.solid,
+                      color: Theme.of(context).colorScheme.secondary,
+                      width: 2),
+                  top: BorderSide(
+                      color: Theme.of(context).colorScheme.secondary, width: 2),
+                  right: BorderSide(
+                      color: Theme.of(context).colorScheme.secondary, width: 2),
+                  left: BorderSide(
+                      color: Theme.of(context).colorScheme.secondary,
+                      width: 2)),
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: CachedNetworkImageProvider(
+                  (apartment.photosUrls?.firstOrNull) ??
+                      'https://www.propertyfinder.eg/property/5d26952486a6c5c833f75721305d3c55/416/272/MODE/d6ab15/4831082-47434o.webp?ctr=eg',
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Container(
+            ),
+            height: SizeConfig.screenhieght! * 0.31,
+          ),
+        ),
+        Positioned(
+            top: SizeConfig.defaultSize,
+            right: SizeConfig.defaultSize! * 2,
+            child: CircleAvatar(
+              backgroundColor: Colors.grey.withOpacity(0.4),
+              child: CustomFavoriteIcon(
+                apartmentId: apartment.apartmentID ?? '',
+                favoritesRepository: FavoritesRepository(),
+              ),
+            )),
+        Positioned(
+            bottom: SizeConfig.defaultSize,
+            left: SizeConfig.defaultSize! * 2,
+            child: Row(
+              children: [
+                Container(
                   decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.5),
                       borderRadius: BorderRadius.circular(8)),
@@ -95,17 +73,17 @@ class CustomListViewItem extends StatelessWidget {
                       IconButton(
                           onPressed: () {},
                           icon: const Icon(
-                            FontAwesomeIcons.dollarSign,
+                            Icons.bed_sharp,
                             color: Colors.white,
-                            size: 16,
+                            size: 18,
                           )),
                       Padding(
                         padding: const EdgeInsets.only(right: 16),
                         child: Text(
-                          '${apartment.priceOfOneBedInDoubleBeds}',
+                          '${int.parse(apartment.numberOfDoubleBeds ?? '0') + int.parse(apartment.numberOfSingleBeds ?? '0') + int.parse(apartment.numberOfTripleBeds ?? '0')} ',
                           style: Theme.of(context)
                               .textTheme
-                              .bodyMedium!
+                              .bodyLarge!
                               .copyWith(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
@@ -114,9 +92,40 @@ class CustomListViewItem extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
-            ],
-          )),
-    ]);
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(8)),
+                    child: Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              FontAwesomeIcons.dollarSign,
+                              color: Colors.white,
+                              size: 16,
+                            )),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 16),
+                          child: Text(
+                            '${apartment.priceOfOneBedInDoubleBeds}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            )),
+      ]),
+    );
   }
 }

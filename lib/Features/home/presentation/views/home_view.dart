@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_apartment_type_buttons.dart';
-import 'package:sakeny/Features/home/presentation/views/widgets/custom_bottom_bar.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_list_bloc_builder.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_sliver_app_bar.dart';
 

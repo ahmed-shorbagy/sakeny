@@ -28,7 +28,7 @@ class _UserInfoViewState extends State<UserInfoView> {
       body: BlocListener<NewUserCubit, NewUserState>(
         listener: (context, state) {
           if (state is NewUserSuccess) {
-            GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+            GoRouter.of(context).pushReplacement(AppRouter.kMainView);
           }
         },
         child: Column(

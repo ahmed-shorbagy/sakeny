@@ -44,7 +44,7 @@ class FireBaseAPi {
     var body = {
       "message": {
         "token":
-            "fAXllIqWSz6DfjMxbilHR5:APA91bHIIW6_19Q62UjxhMi5cQAyWq25YfSOpI948IEOH5_9QtSkrJRCVPDX-4WjPCfXU9GUGgKa110U4RLQ55NaqpDBnVSYzLvA_Fqvt9Q7p_qIZUQx82eAJ0g18O8x20r3PvqhdLef",
+            "eb2Yw2hVTEeyIUkmAQ7lel:APA91bHA4qM-GJeNM_Q3QeCVNSyVMbP9OM2j8YEIVt7LNDUJ96zkocrNRO4JXve_Lr39EHHuN-SNoUe1u0R5A72m8D7M1w2zzpBj0USzLwZ61TVvsCZ7y3LWxar39xvTyyHSjvQCZM6B",
         "notification": {"title": title, "body": messageBody}
       }
     };
@@ -57,9 +57,11 @@ class FireBaseAPi {
     final resBody = await res.stream.bytesToString();
 
     if (res.statusCode >= 200 && res.statusCode < 300) {
-      print(resBody);
+      log('0***************************');
+      log(resBody);
     } else {
-      print(res.reasonPhrase);
+      log('0***************************');
+      log(res.toString());
     }
   }
 }
@@ -89,7 +91,6 @@ class AccessTokenFirbase {
         [firebaseMessagingScope]);
     final accesToken = client.credentials.accessToken.data;
 
-    log(accesToken);
     return accesToken;
   }
 }

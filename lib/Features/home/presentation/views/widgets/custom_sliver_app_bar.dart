@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_button.dart';
+import 'package:sakeny/Features/home/presentation/views/widgets/custom_bottom_sheet_column.dart';
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/size_config.dart';
 
@@ -33,47 +34,8 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar>
                     return Container(
                       height: SizeConfig.screenhieght! * 0.3,
                       color: Theme.of(context).colorScheme.background,
-                      child: Center(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 16, vertical: 16),
-                              child: Text(
-                                'Room Type',
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyLarge!
-                                    .copyWith(fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                            Divider(
-                              thickness: 2,
-                              indent: 10,
-                              endIndent: 10,
-                              color: Colors.grey.shade300,
-                            ),
-                            const Spacer(),
-                            Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: CustomButton(
-                                  onPressed: () async {
-                                    setState(() {});
-
-                                    setState(() {});
-                                  },
-                                  child: Text(
-                                    'Apply',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyLarge!
-                                        .copyWith(color: Colors.white),
-                                  )),
-                            )
-                          ],
-                        ),
+                      child: const Center(
+                        child: CustomBottomSheetColumn(),
                       ),
                     );
                   });

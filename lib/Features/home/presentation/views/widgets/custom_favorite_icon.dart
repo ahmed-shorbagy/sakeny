@@ -35,9 +35,11 @@ class _CustomFavoriteIconState extends State<CustomFavoriteIcon> {
       result.fold((failure) {
         snackBar(context, 'some thing went wrong please check your internet');
       }, (favorites) {
-        setState(() {
-          isFavorite = favorites.contains(widget.apartmentId);
-        });
+        if (mounted) {
+          setState(() {
+            isFavorite = favorites.contains(widget.apartmentId);
+          });
+        }
       });
     }
   }

@@ -66,29 +66,28 @@ class FavoritesRepository {
   }
   // Function to get user's favorites
 
-  Future<Either<Faluire, List<String>>> getUserFavorites(String userId) async {
+  Future<Either<Faluire, List<dynamic>>> getUserFavorites(String userId) async {
     try {
       final DocumentSnapshot<Map<String, dynamic>> snapshot =
           await _firestore.collection('Favorites').doc(userId).get();
 
-      final data = snapshot.data() ?? {};
+      final data = snapshot.data()!;
       // Return list of favorite apartment IDs
-      return Right(data.keys.cast<String>().toList());
+      return Right(data['apartmentIds']);
     } on FirebaseException catch (e) {
       return Left(FirebaseFaluire.fromFireStore(e.code));
     }
 // Return an empty list if user has no favorites
   }
 
-  Future<Either<Faluire, List<ApartmentModel>>> getFavoriteApartments(
-      {required String userId}) async {
+  Future<Either<Faluire, List<ApartmentModel>>> getFavoriteApartments({
+    required String userId,
+  }) async {
     try {
       final favoriteIdsResult = await getUserFavorites(userId);
 
-      // Check if getUserFavorites returned a Right or a Left
       return favoriteIdsResult.fold(
-        (failure) =>
-            Left(failure), // Propagate the failure if getUserFavorites failed
+        (failure) => Left(failure),
         (favoriteIds) async {
           final List<ApartmentModel> favoriteApartments = [];
 
@@ -96,15 +95,28 @@ class FavoritesRepository {
           final snapshots = await Future.wait(favoriteIds
               .map((id) => _firestore.collection('Apartments').doc(id).get()));
 
+          // Debug: print snapshot data
+          print('Snapshot data:');
+          for (var snapshot in snapshots) {
+            print(snapshot.data());
+          }
+
           // Convert snapshots to ApartmentModel objects
           favoriteApartments.addAll(snapshots
               .map((snapshot) => ApartmentModel.fromFirestore(snapshot))
               .toList());
-          return Right(
-              favoriteApartments); // Return the list of favorite apartments
+
+          // Debug: print favorite apartments
+          print('Favorite Apartments:');
+          for (var apartment in favoriteApartments) {
+            print(apartment.toMap());
+          }
+
+          return Right(favoriteApartments);
         },
       );
     } on FirebaseException catch (e) {
+      log(e.toString());
       return Left(FirebaseFaluire.fromFireStore(e.code));
     }
   }

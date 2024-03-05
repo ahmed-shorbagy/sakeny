@@ -6,7 +6,7 @@ class CustomGoogleButton extends StatelessWidget {
     required this.onPressed,
     required this.child,
   });
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Widget child;
   @override
   Widget build(BuildContext context) {
