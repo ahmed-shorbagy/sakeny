@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phone_form_field/phone_form_field.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class CustomPhoneField extends StatelessWidget {
   const CustomPhoneField(
@@ -19,7 +20,7 @@ class CustomPhoneField extends StatelessWidget {
       autovalidateMode: autoValidateMode,
       validator: PhoneValidator.compose([
         // list of validators to use
-        PhoneValidator.required(errorText: "You must enter a value"),
+        PhoneValidator.required(errorText: S.of(context).thisIsRequired),
         PhoneValidator.validMobile(),
         // ..
       ]),
@@ -31,7 +32,7 @@ class CustomPhoneField extends StatelessWidget {
           color: Theme.of(context).primaryColor,
           width: 1.5,
         )),
-        label: const Text('     Your mobile number'),
+        label: Text(S.of(context).yourmobile),
         labelStyle: Theme.of(context)
             .textTheme
             .labelLarge!

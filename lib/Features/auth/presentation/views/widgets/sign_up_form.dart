@@ -16,6 +16,7 @@ import 'package:sakeny/Features/auth/presentation/views/widgets/sign_up_bottom_t
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/App_router.dart';
 import 'package:sakeny/core/utils/helper_methodes.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({
@@ -59,14 +60,14 @@ class _SignUpFormState extends State<SignUpForm> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const CustomShapeStack(
-                label: "Sign up",
+              CustomShapeStack(
+                label: S.of(context).singUp,
               ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                 child: CustomUnderLineTextField(
-                  label: "Name",
+                  label: S.of(context).name,
                   onChanged: (value) {
                     name = value;
                   },
@@ -76,7 +77,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                 child: CustomUnderLineTextField(
-                  label: "Email",
+                  label: S.of(context).email,
                   onChanged: (value) {
                     email = value;
                   },
@@ -86,7 +87,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                 child: CustomUnderLineTextField(
-                  label: "Password",
+                  label: S.of(context).password,
                   onChanged: (value) {
                     password = value;
                   },
@@ -121,7 +122,7 @@ class _SignUpFormState extends State<SignUpForm> {
                         );
                       } else {
                         return Text(
-                          'Sign up',
+                          S.of(context).singUp,
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge!
@@ -145,7 +146,7 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 28),
-                child: Text('Or continue with',
+                child: Text(S.of(context).or,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodyMedium),
               ),

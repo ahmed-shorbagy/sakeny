@@ -9,6 +9,7 @@ import 'package:sakeny/Features/auth/presentation/views/widgets/custom_row_fo_bu
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/App_router.dart';
 import 'package:sakeny/core/utils/helper_methodes.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class UserInfoView extends StatefulWidget {
   const UserInfoView({super.key});
@@ -55,7 +56,7 @@ class _UserInfoViewState extends State<UserInfoView> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Text(
-                'Tell us more about you',
+                S.of(context).tellUsAboutYourSelf,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
@@ -84,8 +85,8 @@ class _UserInfoViewState extends State<UserInfoView> {
                           snackBar(context,
                               'Please Enter your phone Number and Select account type to continue');
                         },
-                  child: const Text(
-                    'Continue',
+                  child: Text(
+                    S.of(context).continuee,
                   )),
             ),
             const Spacer(

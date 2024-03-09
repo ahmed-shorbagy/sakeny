@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField(
@@ -29,7 +30,7 @@ class CustomTextField extends StatelessWidget {
       style: Theme.of(context).textTheme.titleMedium,
       validator: (value) {
         if (value?.isEmpty ?? true) {
-          return 'This Field is required';
+          return S.of(context).thisIsRequired;
         } else {
           return null;
         }

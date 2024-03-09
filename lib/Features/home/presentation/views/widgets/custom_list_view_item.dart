@@ -62,18 +62,21 @@ class CustomListViewItem extends StatelessWidget {
         Positioned(
             bottom: 2,
             left: 0,
-            right: SizeConfig.defaultSize! * 2,
-            child: Container(
-              height: SizeConfig.defaultSize! * 7,
-              color: Colors.black.withOpacity(0.3),
-              child: Text(
-                apartment.userDescription ?? '',
-                textAlign: TextAlign.center,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge!
-                    .copyWith(color: Colors.white),
-                overflow: TextOverflow.fade,
+            right: 0,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: SizeConfig.defaultSize! * 7,
+                color: Colors.black.withOpacity(0.4),
+                child: Text(
+                  apartment.userDescription ?? '',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(color: Colors.white),
+                  overflow: TextOverflow.fade,
+                ),
               ),
             )),
         Positioned(

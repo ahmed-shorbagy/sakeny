@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/size_config.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class CustomRowOfButtons extends StatefulWidget {
   const CustomRowOfButtons({
@@ -45,8 +46,8 @@ class _CustomRowOfButtonsState extends State<CustomRowOfButtons> {
                   children: [
                     SizedBox(
                       width: SizeConfig.screenwidth! * 0.2,
-                      child: const Text(
-                        'Male',
+                      child: Text(
+                        S.of(context).male,
                         textAlign: TextAlign.center,
                         maxLines: 2,
                       ),
@@ -82,8 +83,8 @@ class _CustomRowOfButtonsState extends State<CustomRowOfButtons> {
                   children: [
                     SizedBox(
                       width: SizeConfig.screenwidth! * 0.2,
-                      child: const Text(
-                        'Female',
+                      child: Text(
+                        S.of(context).female,
                         textAlign: TextAlign.center,
                         maxLines: 2,
                       ),

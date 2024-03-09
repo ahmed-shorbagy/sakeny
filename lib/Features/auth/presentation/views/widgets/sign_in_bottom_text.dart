@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sakeny/core/utils/App_router.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class SignInBottomText extends StatelessWidget {
   const SignInBottomText({
@@ -14,7 +15,7 @@ class SignInBottomText extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 6),
-          child: Text('Dont have account?',
+          child: Text(S.of(context).dontHaveAccount,
               style: Theme.of(context).textTheme.bodyMedium),
         ),
         GestureDetector(
@@ -22,7 +23,7 @@ class SignInBottomText extends StatelessWidget {
             GoRouter.of(context).pushReplacement(AppRouter.kSignUpView);
           },
           child: Text(
-            'Create now',
+            S.of(context).createAccount,
             style: Theme.of(context)
                 .textTheme
                 .bodyMedium!

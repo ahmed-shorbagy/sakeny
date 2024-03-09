@@ -3,6 +3,7 @@ import 'package:sakeny/Features/auth/presentation/views/widgets/custom_button.da
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_bottom_sheet_column.dart';
 import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/size_config.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class CustomSliverAppBar extends StatefulWidget {
   const CustomSliverAppBar({
@@ -50,7 +51,7 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar>
       backgroundColor: Theme.of(context).colorScheme.background,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       title: Text(
-        'Hello, ${UserCubit.user.name}',
+        '${S.of(context).Hello}, ${UserCubit.user.name}',
         style: Theme.of(context)
             .textTheme
             .headlineSmall!

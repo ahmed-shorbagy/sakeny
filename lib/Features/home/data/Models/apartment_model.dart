@@ -59,9 +59,10 @@ class ApartmentModel {
     );
   }
 
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toMap({required String docID}) {
     return {
       'type': type,
+      'apartmentID': docID,
 
       'ownerName': ownerName, // Corrected spelling
       'ownerPhone': ownerPhone,

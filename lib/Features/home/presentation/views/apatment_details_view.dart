@@ -4,6 +4,7 @@ import 'package:sakeny/Features/home/presentation/views/widgets/Custom_app_bar.d
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_images_slider.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/rental_buttons.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/row_of_apartmentDetails.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class ApartmentDetailsView extends StatelessWidget {
   const ApartmentDetailsView({super.key, required this.apartment});
@@ -17,8 +18,8 @@ class ApartmentDetailsView extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const CustomAppBar(
-                title: 'Apartment Details',
+              CustomAppBar(
+                title: S.of(context).ApartmentDetails,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
@@ -28,7 +29,7 @@ class ApartmentDetailsView extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 child: RowOfApartmentDetails(
-                  title: 'Single Bed',
+                  title: S.of(context).SingleBed,
                   numberofBeds: apartment.numberOfSingleBeds ?? '',
                   price: apartment.priceOfOneBedInSingleBeds ?? '',
                 ),
@@ -37,7 +38,7 @@ class ApartmentDetailsView extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 child: RowOfApartmentDetails(
-                  title: 'Double Bed',
+                  title: S.of(context).DoubleBed,
                   numberofBeds: apartment.numberOfDoubleBeds ?? '',
                   price: apartment.priceOfOneBedInDoubleBeds ?? '',
                 ),
@@ -46,7 +47,7 @@ class ApartmentDetailsView extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 child: RowOfApartmentDetails(
-                  title: 'Triple Bed',
+                  title: S.of(context).TripleBed,
                   numberofBeds: apartment.numberOfTripleBeds ?? '',
                   price: apartment.priceOfOneBedInTripleBeds ?? '',
                 ),
@@ -54,7 +55,7 @@ class ApartmentDetailsView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                 child: ExpansionTile(
-                  title: Text('Description',
+                  title: Text(S.of(context).Description,
                       style: Theme.of(context).textTheme.bodyLarge),
                   iconColor: Theme.of(context).colorScheme.primary,
                   shape: OutlineInputBorder(

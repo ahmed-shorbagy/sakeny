@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class RowOfApartmentDetails extends StatelessWidget {
   const RowOfApartmentDetails({
@@ -27,7 +28,7 @@ class RowOfApartmentDetails extends StatelessWidget {
         ),
         Expanded(
           child: Text(
-            '$price ' r' EGP',
+            '$price ${S.of(context).EGP}',
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),

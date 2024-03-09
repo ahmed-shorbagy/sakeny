@@ -10,7 +10,6 @@ import 'package:sakeny/Features/auth/presentation/manager/sign_in_with_emailandp
 import 'package:sakeny/Features/auth/presentation/manager/sign_up_with_emailandpassword_cubit/sign_up_with_email_passwod_cubit.dart';
 import 'package:sakeny/Features/auth/presentation/views/SignUp_view.dart';
 import 'package:sakeny/Features/auth/presentation/views/User_info_view.dart';
-import 'package:sakeny/Features/auth/presentation/views/sePassword_view.dart';
 import 'package:sakeny/Features/auth/presentation/views/signIn_view.dart';
 import 'package:sakeny/Features/favorites/data/Repos/favorites_repo.dart';
 import 'package:sakeny/Features/favorites/peresentation/manager/add_favorite/add_favorite_cubit.dart';
@@ -23,7 +22,7 @@ import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit
 import 'package:sakeny/Features/home/presentation/manager/request_cubit/requests_cubit.dart';
 import 'package:sakeny/Features/home/presentation/views/apatment_details_view.dart';
 import 'package:sakeny/Features/home/presentation/views/home_view.dart';
-import 'package:sakeny/Features/home/presentation/views/profile_view.dart';
+import 'package:sakeny/Features/home/presentation/views/settings_view.dart';
 import 'package:sakeny/Features/home/presentation/views/thank_you_view.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/main_view.dart';
 import 'package:sakeny/Features/splash/presentation/views/splash_view.dart';
@@ -35,12 +34,16 @@ abstract class AppRouter {
   static const String kSignInView = '/SignIn';
   static const String kSignUpView = '/SignUp';
   static const String kUserInfoView = '/UserInfoView';
-  static const String kChangePasswordView = '/ChangePasswordView';
   static const String kAddNewAppartmentView = '/AddNewAppartmentView';
   static const String kAppartmentdetailsView = '/AppartmentdetailsView';
   static const String kThnakYouView = '/ThankYouView';
   static const String kFavoritesView = '/favoritesView';
-  static const String kProfileView = '/profileView';
+  static const String kSettingsView = '/settingsView';
+  static const String kChangeThemeView = '/changeThemeView';
+  static const String kChangeLanguageView = '/changeLanguageView';
+  static const String kPrivacyPolicyView = '/privacyPolicyView';
+  static const String kDeleteAccountView = '/deleteAccountView';
+
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
@@ -152,13 +155,6 @@ abstract class AppRouter {
           ));
         }),
     GoRoute(
-      path: kChangePasswordView,
-      builder: (context, state) => BlocProvider(
-        create: (context) => ChangePasswordCubit(),
-        child: const ChangePasswordView(),
-      ),
-    ),
-    GoRoute(
       path: kAddNewAppartmentView,
       pageBuilder: (context, state) {
         return basicTransition(
@@ -206,9 +202,9 @@ abstract class AppRouter {
           ));
         }),
     GoRoute(
-        path: kProfileView,
+        path: kSettingsView,
         pageBuilder: (context, state) {
-          return stylishSideTransition(child: const ProfileView());
+          return stylishSideTransition(child: const SettingsView());
         }),
   ]);
 }

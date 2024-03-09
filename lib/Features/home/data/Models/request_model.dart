@@ -33,7 +33,7 @@ class RequestModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'apartment': apartment.toMap(),
+      'apartment': apartment.toMap(docID: apartment.apartmentID!),
       'user': user.toMap(),
       'bedType': _encodeBedType(bedType),
       'requestTime': requestTime

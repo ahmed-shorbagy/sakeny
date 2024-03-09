@@ -10,6 +10,7 @@ import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/App_router.dart';
 import 'package:sakeny/core/utils/firebase_messaging_api.dart';
 import 'package:sakeny/core/utils/helper_methodes.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class RentalButtons extends StatelessWidget {
   const RentalButtons({
@@ -49,7 +50,7 @@ class RentalButtons extends StatelessWidget {
                         await BlocProvider.of<RequestsCubit>(context)
                             .addNEwRequest(request: request);
                       },
-                      child: Text('Rent a single',
+                      child: Text(S.of(context).Rentasingle,
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge!
@@ -74,7 +75,7 @@ class RentalButtons extends StatelessWidget {
                         await BlocProvider.of<RequestsCubit>(context)
                             .addNEwRequest(request: request);
                       },
-                      child: Text('Rent a Double',
+                      child: Text(S.of(context).RentADouble,
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge!
@@ -99,7 +100,7 @@ class RentalButtons extends StatelessWidget {
                         await BlocProvider.of<RequestsCubit>(context)
                             .addNEwRequest(request: request);
                       },
-                      child: Text('Rent a Triple',
+                      child: Text(S.of(context).RentATriple,
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge!

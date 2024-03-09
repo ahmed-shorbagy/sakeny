@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/Custom_app_bar.dart';
 import 'package:sakeny/core/utils/App_router.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class ThankYouView extends StatelessWidget {
   const ThankYouView({super.key});
@@ -15,19 +16,19 @@ class ThankYouView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const CustomAppBar(title: 'Thnak you'),
+            CustomAppBar(title: S.of(context).thankYouForRegistering),
             Image.asset(
               'assets/pngs/Group 6476.png',
               scale: 0.7,
             ),
             Text(
-              'Your Request has been sent successfully',
+              S.of(context).YourRequesthasbeensentsuccessfully,
               textAlign: TextAlign.center,
               maxLines: 2,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             Text(
-              'you will be contacted soon',
+              S.of(context).youwillbecontactedsoon,
               textAlign: TextAlign.center,
               maxLines: 2,
               style: Theme.of(context).textTheme.headlineSmall,
@@ -36,7 +37,7 @@ class ThankYouView extends StatelessWidget {
               flex: 2,
             ),
             CustomButton(
-                child: const Text('Continue to home'),
+                child: Text(S.of(context).ContinueToHome),
                 onPressed: () {
                   GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
                 }),

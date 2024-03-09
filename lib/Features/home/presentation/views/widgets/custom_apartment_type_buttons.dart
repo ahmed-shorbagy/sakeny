@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class AppartmentFilterButtons extends StatefulWidget {
   const AppartmentFilterButtons({
@@ -59,7 +60,7 @@ class _AppartmentFilterButtonsState extends State<AppartmentFilterButtons> {
                           isSingle: isSingle,
                           isTriple: isTriple);
                 },
-                child: Text("Males only",
+                child: Text(S.of(context).Malesonly,
                     style: Theme.of(context).textTheme.bodyLarge!),
               ),
             ),
@@ -95,7 +96,7 @@ class _AppartmentFilterButtonsState extends State<AppartmentFilterButtons> {
                           isSingle: isSingle,
                           isTriple: isTriple);
                 },
-                child: Text("Females only",
+                child: Text(S.of(context).FemalesOnly,
                     style: Theme.of(context).textTheme.bodyLarge!),
               ),
             ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sakeny/Features/favorites/peresentation/views/favorites_view.dart';
 import 'package:sakeny/Features/home/presentation/views/home_view.dart';
-import 'package:sakeny/Features/home/presentation/views/profile_view.dart';
+import 'package:sakeny/Features/home/presentation/views/settings_view.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);
@@ -34,7 +35,7 @@ class _MainViewState extends State<MainView> {
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: const <Widget>[
-          ProfileView(),
+          SettingsView(),
           HomeView(),
           FavoritesView(),
         ],
@@ -44,18 +45,18 @@ class _MainViewState extends State<MainView> {
         color: Theme.of(context).colorScheme.secondary,
         surfaceTintColor: Theme.of(context).colorScheme.background,
         child: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
+              icon: const Icon(Icons.settings),
+              label: S.of(context).bottomBarSettings,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+              icon: const Icon(Icons.home),
+              label: S.of(context).bottomBarHome,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'Favorites',
+              icon: const Icon(Icons.favorite),
+              label: S.of(context).bottomBarFavourite,
             ),
           ],
           currentIndex: _selectedIndex,

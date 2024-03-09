@@ -70,13 +70,17 @@ class FavoritesRepository {
       final DocumentSnapshot<Map<String, dynamic>> snapshot =
           await _firestore.collection('Favorites').doc(userId).get();
 
-      final data = snapshot.data()!;
-      // Return list of favorite apartment IDs
-      return Right(data['apartmentIds']);
+      if (snapshot.exists) {
+        final data = snapshot.data() ?? {};
+        // Return list of favorite apartment IDs
+        return Right(data['apartmentIds']);
+      } else {
+        // Return an empty list if user has no favorites
+        return const Right([]);
+      }
     } on FirebaseException catch (e) {
       return Left(FirebaseFaluire.fromFireStore(e.code));
     }
-// Return an empty list if user has no favorites
   }
 
   Future<Either<Faluire, List<ApartmentModel>>> getFavoriteApartments({

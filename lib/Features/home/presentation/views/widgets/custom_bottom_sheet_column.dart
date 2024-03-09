@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_apartment_type_buttons.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class CustomBottomSheetColumn extends StatefulWidget {
   const CustomBottomSheetColumn({
@@ -22,7 +23,7 @@ class _CustomBottomSheetColumnState extends State<CustomBottomSheetColumn> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Text(
-            'Room Type',
+            S.of(context).RoomType,
             textAlign: TextAlign.center,
             style: Theme.of(context)
                 .textTheme
@@ -30,97 +31,99 @@ class _CustomBottomSheetColumnState extends State<CustomBottomSheetColumn> {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: OutlinedButton(
-                style: ButtonStyle(
-                  side: MaterialStatePropertyAll<BorderSide>(
-                    BorderSide(
-                        color: isSingle
-                            ? Theme.of(context).colorScheme.secondary
-                            : Colors.transparent,
-                        width: 2),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: OutlinedButton(
+                  style: ButtonStyle(
+                    side: MaterialStatePropertyAll<BorderSide>(
+                      BorderSide(
+                          color: isSingle
+                              ? Theme.of(context).colorScheme.secondary
+                              : Colors.transparent,
+                          width: 2),
+                    ),
                   ),
+                  onPressed: () async {
+                    setState(() {
+                      isSingle = !isSingle;
+                    });
+                    await BlocProvider.of<FetchApartmentsCubit>(context)
+                        .fetchFilteredApartments(
+                            pageNumber: 1,
+                            isSingle: isSingle,
+                            isDouble: isDouble,
+                            isTriple: isTriple,
+                            isForFemales: isForFemales,
+                            isForMales: isForMales);
+                  },
+                  child: Text(S.of(context).SingleBed,
+                      style: Theme.of(context).textTheme.bodyMedium!),
                 ),
-                onPressed: () async {
-                  setState(() {
-                    isSingle = !isSingle;
-                  });
-                  await BlocProvider.of<FetchApartmentsCubit>(context)
-                      .fetchFilteredApartments(
-                          pageNumber: 1,
-                          isSingle: isSingle,
-                          isDouble: isDouble,
-                          isTriple: isTriple,
-                          isForFemales: isForFemales,
-                          isForMales: isForMales);
-                },
-                child: Text("Single",
-                    style: Theme.of(context).textTheme.bodyLarge!),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: OutlinedButton(
-                style: ButtonStyle(
-                  side: MaterialStatePropertyAll<BorderSide>(
-                    BorderSide(
-                        color: isDouble
-                            ? Theme.of(context).colorScheme.secondary
-                            : Colors.transparent,
-                        width: 2),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: OutlinedButton(
+                  style: ButtonStyle(
+                    side: MaterialStatePropertyAll<BorderSide>(
+                      BorderSide(
+                          color: isDouble
+                              ? Theme.of(context).colorScheme.secondary
+                              : Colors.transparent,
+                          width: 2),
+                    ),
                   ),
+                  onPressed: () async {
+                    setState(() {
+                      isDouble = !isDouble;
+                    });
+                    await BlocProvider.of<FetchApartmentsCubit>(context)
+                        .fetchFilteredApartments(
+                            pageNumber: 1,
+                            isSingle: isSingle,
+                            isDouble: isDouble,
+                            isTriple: isTriple,
+                            isForFemales: isForFemales,
+                            isForMales: isForMales);
+                  },
+                  child: Text(S.of(context).DoubleBed,
+                      style: Theme.of(context).textTheme.bodyMedium!),
                 ),
-                onPressed: () async {
-                  setState(() {
-                    isDouble = !isDouble;
-                  });
-                  await BlocProvider.of<FetchApartmentsCubit>(context)
-                      .fetchFilteredApartments(
-                          pageNumber: 1,
-                          isSingle: isSingle,
-                          isDouble: isDouble,
-                          isTriple: isTriple,
-                          isForFemales: isForFemales,
-                          isForMales: isForMales);
-                },
-                child: Text("Double",
-                    style: Theme.of(context).textTheme.bodyMedium!),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: OutlinedButton(
-                style: ButtonStyle(
-                  side: MaterialStatePropertyAll<BorderSide>(
-                    BorderSide(
-                        color: isTriple
-                            ? Theme.of(context).colorScheme.secondary
-                            : Colors.transparent,
-                        width: 2),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: OutlinedButton(
+                  style: ButtonStyle(
+                    side: MaterialStatePropertyAll<BorderSide>(
+                      BorderSide(
+                          color: isTriple
+                              ? Theme.of(context).colorScheme.secondary
+                              : Colors.transparent,
+                          width: 2),
+                    ),
                   ),
+                  onPressed: () async {
+                    setState(() {
+                      isTriple = !isTriple;
+                    });
+                    await BlocProvider.of<FetchApartmentsCubit>(context)
+                        .fetchFilteredApartments(
+                            pageNumber: 1,
+                            isSingle: isSingle,
+                            isDouble: isDouble,
+                            isTriple: isTriple,
+                            isForFemales: isForFemales,
+                            isForMales: isForMales);
+                  },
+                  child: Text(S.of(context).TripleBed,
+                      style: Theme.of(context).textTheme.bodyMedium!),
                 ),
-                onPressed: () async {
-                  setState(() {
-                    isTriple = !isTriple;
-                  });
-                  await BlocProvider.of<FetchApartmentsCubit>(context)
-                      .fetchFilteredApartments(
-                          pageNumber: 1,
-                          isSingle: isSingle,
-                          isDouble: isDouble,
-                          isTriple: isTriple,
-                          isForFemales: isForFemales,
-                          isForMales: isForMales);
-                },
-                child: Text("Triple",
-                    style: Theme.of(context).textTheme.bodyMedium!),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         Divider(
           thickness: 2,

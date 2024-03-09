@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class CustomUnderLineTextField extends StatelessWidget {
   const CustomUnderLineTextField({
@@ -16,7 +17,7 @@ class CustomUnderLineTextField extends StatelessWidget {
     return TextFormField(
       validator: (value) {
         if (value?.isEmpty ?? true) {
-          return ' This field is required';
+          return S.of(context).thisIsRequired;
         }
         return null;
       },
