@@ -17,8 +17,8 @@ class CustomListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 15,
-      shadowColor: Theme.of(context).colorScheme.outline,
+      elevation: 10,
+      shadowColor: Theme.of(context).colorScheme.primary,
       child: Stack(children: [
         GestureDetector(
           onTap: onTaped,

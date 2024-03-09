@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/Custom_app_bar.dart';
 import 'package:sakeny/core/theme/theme_manager.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class ChangeThemeView extends StatefulWidget {
   const ChangeThemeView({super.key});
@@ -18,10 +19,10 @@ class _ChangeThemeViewState extends State<ChangeThemeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        const Padding(
-          padding: EdgeInsets.only(top: 60, bottom: 30),
+        Padding(
+          padding: const EdgeInsets.only(top: 60, bottom: 30),
           child: CustomAppBar(
-            title: 'change theme',
+            title: S.of(context).ChangeTheme,
           ),
         ),
         Padding(

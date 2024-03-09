@@ -14,9 +14,9 @@ class SettingsView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 60, bottom: 30),
-              child: CustomAppBar(title: 'Settings'),
+            Padding(
+              padding: const EdgeInsets.only(top: 60, bottom: 30),
+              child: CustomAppBar(title: S.of(context).Settings),
             ),
             Padding(
               padding: const EdgeInsets.all(16),

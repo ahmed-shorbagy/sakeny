@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:sakeny/Features/home/data/Repos/home_repo.dart';
+import 'package:sakeny/Features/home/presentation/manager/Language_manager/theme_manager.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
 import 'package:sakeny/core/errors/simple_bloc_observer.dart';
 import 'package:sakeny/core/theme/theme_manager.dart';
@@ -23,11 +24,23 @@ void main() async {
   await AccessTokenFirbase().getAccessToken();
 
   setupServiceLocator();
-  runApp(ChangeNotifierProvider(
-      create: (context) {
-        return ThemeProvider();
-      },
-      child: const Sakeny()));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ThemeProvider>(
+          create: (context) {
+            return ThemeProvider();
+          },
+        ),
+        ChangeNotifierProvider<LanguageProvider>(
+          create: (context) {
+            return LanguageProvider();
+          },
+        ),
+      ],
+      child: const Sakeny(),
+    ),
+  );
 
   Bloc.observer = SimpleBLocObserver();
 }
@@ -40,7 +53,7 @@ class Sakeny extends StatelessWidget {
     return BlocProvider(
       create: (context) => FetchApartmentsCubit(getIt.get<HomeRepo>()),
       child: MaterialApp.router(
-        locale: const Locale('ar'),
+        locale: Locale(Provider.of<LanguageProvider>(context).local),
         localizationsDelegates: const [
           S.delegate,
           GlobalMaterialLocalizations.delegate,

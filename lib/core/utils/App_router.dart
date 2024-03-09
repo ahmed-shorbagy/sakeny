@@ -18,9 +18,14 @@ import 'package:sakeny/Features/favorites/peresentation/manager/remove_favorite/
 import 'package:sakeny/Features/favorites/peresentation/views/favorites_view.dart';
 import 'package:sakeny/Features/home/data/Models/apartment_model.dart';
 import 'package:sakeny/Features/home/data/Repos/home_repo.dart';
+import 'package:sakeny/Features/home/presentation/manager/delete_acount_cubit/delete_password_cubit.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
 import 'package:sakeny/Features/home/presentation/manager/request_cubit/requests_cubit.dart';
+import 'package:sakeny/Features/home/presentation/views/Delete_account_view.dart';
+import 'package:sakeny/Features/home/presentation/views/Privacy_polic_view.dart';
 import 'package:sakeny/Features/home/presentation/views/apatment_details_view.dart';
+import 'package:sakeny/Features/home/presentation/views/change_language_view.dart';
+import 'package:sakeny/Features/home/presentation/views/change_theme_view.dart';
 import 'package:sakeny/Features/home/presentation/views/home_view.dart';
 import 'package:sakeny/Features/home/presentation/views/settings_view.dart';
 import 'package:sakeny/Features/home/presentation/views/thank_you_view.dart';
@@ -177,6 +182,34 @@ abstract class AppRouter {
       path: kThnakYouView,
       pageBuilder: (context, state) {
         return basicTransition(child: const ThankYouView());
+      },
+    ),
+    GoRoute(
+      path: kChangeLanguageView,
+      pageBuilder: (context, state) {
+        return basicTransition(child: const ChangeLanguageView());
+      },
+    ),
+    GoRoute(
+      path: kChangeThemeView,
+      pageBuilder: (context, state) {
+        return basicTransition(child: const ChangeThemeView());
+      },
+    ),
+    GoRoute(
+      path: kPrivacyPolicyView,
+      pageBuilder: (context, state) {
+        return basicTransition(child: const PrivacyPolicyView());
+      },
+    ),
+    GoRoute(
+      path: kDeleteAccountView,
+      pageBuilder: (context, state) {
+        return basicTransition(
+            child: BlocProvider(
+          create: (context) => DeletePasswordCubit(),
+          child: const DeleteAccountView(),
+        ));
       },
     ),
     GoRoute(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sakeny/Features/home/presentation/manager/Language_cubit/language_cubit.dart';
+import 'package:provider/provider.dart';
+import 'package:sakeny/Features/home/presentation/manager/Language_manager/theme_manager.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/Custom_app_bar.dart';
+import 'package:sakeny/generated/l10n.dart';
 
 class ChangeLanguageView extends StatefulWidget {
   const ChangeLanguageView({super.key});
@@ -20,19 +21,19 @@ class _ChangeLanguageViewState extends State<ChangeLanguageView> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(top: 60, bottom: 30),
-            child: CustomAppBar(title: 'change language'),
+          Padding(
+            padding: const EdgeInsets.only(top: 60, bottom: 30),
+            child: CustomAppBar(title: S.of(context).ChangeLanguage),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: CustomLanguageElement(
               isSelected: englishSelected,
               title: 'English',
-              image: 'assets/images/EnglishFlag.png',
+              image: 'assets/pngs/Flag.png',
               onTap: () {
-                BlocProvider.of<LanguageCubit>(context)
-                    .changeLanguage(const Locale('en'));
+                Provider.of<LanguageProvider>(context, listen: false)
+                    .toggleLanguage();
                 setState(() {
                   englishSelected = true;
                   arabicSelected = false;
@@ -45,10 +46,11 @@ class _ChangeLanguageViewState extends State<ChangeLanguageView> {
             child: CustomLanguageElement(
               isSelected: arabicSelected,
               title: 'Arabic',
-              image: 'assets/pngs/arabic.webp',
+              image:
+                  'assets/pngs/main-qimg-c628f557e989248eca1467b5ee0fd070.webp',
               onTap: () {
-                BlocProvider.of<LanguageCubit>(context)
-                    .changeLanguage(const Locale('ar'));
+                Provider.of<LanguageProvider>(context, listen: false)
+                    .toggleLanguage();
                 setState(() {
                   englishSelected = false;
                   arabicSelected = true;
@@ -100,7 +102,9 @@ class CustomLanguageElement extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset(image),
+              Image.asset(
+                image,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
