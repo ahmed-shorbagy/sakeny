@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sakeny/core/theme/theme_constants.dart';
 
 class LanguageProvider extends ChangeNotifier {
   String _local = 'en';

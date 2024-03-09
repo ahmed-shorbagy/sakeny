@@ -29,7 +29,7 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar>
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18)),
                   transitionAnimationController: AnimationController(
-                      vsync: this, duration: const Duration(milliseconds: 600)),
+                      vsync: this, duration: const Duration(milliseconds: 500)),
                   context: context,
                   builder: (BuildContext context) {
                     return Container(

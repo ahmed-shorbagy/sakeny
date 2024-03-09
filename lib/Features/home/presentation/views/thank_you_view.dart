@@ -39,7 +39,7 @@ class ThankYouView extends StatelessWidget {
             CustomButton(
                 child: Text(S.of(context).ContinueToHome),
                 onPressed: () {
-                  GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+                  GoRouter.of(context).pop();
                 }),
             const Spacer(
               flex: 1,
