@@ -27,65 +27,38 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Apartment Details"),
         "AreYouSure": MessageLookupByLibrary.simpleMessage(
             "Are you sure you want to delete your account? Please read how account deletion will affect.Deleting your account removes personal information our database. Tour email becomes permanently reserved and same email cannot be re-use to register a new account."),
-        "AvailableCarsForRide":
-            MessageLookupByLibrary.simpleMessage("Available Cars For Ride"),
         "Back": MessageLookupByLibrary.simpleMessage("Back"),
-        "Bike": MessageLookupByLibrary.simpleMessage("Bike"),
-        "Car": MessageLookupByLibrary.simpleMessage("Car"),
         "ChangeLanguage":
             MessageLookupByLibrary.simpleMessage("Change Language"),
         "ChangePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "ChangeTheme": MessageLookupByLibrary.simpleMessage("Change Theme"),
-        "ChooseOnMap": MessageLookupByLibrary.simpleMessage("Choose On Map"),
         "Complain": MessageLookupByLibrary.simpleMessage("Complain"),
-        "ConfirmPassword":
-            MessageLookupByLibrary.simpleMessage("Confirm your password"),
         "ContinueToHome":
             MessageLookupByLibrary.simpleMessage("Continue To Home"),
-        "Cycle": MessageLookupByLibrary.simpleMessage("Cycle"),
         "Delete": MessageLookupByLibrary.simpleMessage("Delete"),
         "DeleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
         "Description": MessageLookupByLibrary.simpleMessage("Description"),
-        "Done": MessageLookupByLibrary.simpleMessage("Done"),
         "DoubleBed": MessageLookupByLibrary.simpleMessage("Triple Bed"),
         "EGP": MessageLookupByLibrary.simpleMessage(" EGP"),
-        "EnterYourPassword":
-            MessageLookupByLibrary.simpleMessage("Enter your password"),
         "FemalesOnly": MessageLookupByLibrary.simpleMessage("FeMales only"),
-        "From": MessageLookupByLibrary.simpleMessage("From"),
         "Hello": MessageLookupByLibrary.simpleMessage("Hello"),
         "HelpandSupport":
             MessageLookupByLibrary.simpleMessage("Help and Support"),
         "History": MessageLookupByLibrary.simpleMessage("History"),
-        "JustTapOnyourDesiredLocation": MessageLookupByLibrary.simpleMessage(
-            "Just Tap On your Desired Location !"),
         "LogOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "Login": MessageLookupByLibrary.simpleMessage("Log in"),
         "Malesonly": MessageLookupByLibrary.simpleMessage("Males only"),
-        "OrderNow": MessageLookupByLibrary.simpleMessage("Order Now"),
-        "PasswordChangedSuccessfully": MessageLookupByLibrary.simpleMessage(
-            "Password Changed Successfully"),
-        "PasswordDontMatch":
-            MessageLookupByLibrary.simpleMessage("Passwords Dont Match"),
         "PrivacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
-        "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "Referral": MessageLookupByLibrary.simpleMessage("Referral"),
         "RentADouble": MessageLookupByLibrary.simpleMessage("Rent a double"),
         "RentATriple": MessageLookupByLibrary.simpleMessage("Rent a triple"),
         "Rentasingle": MessageLookupByLibrary.simpleMessage("Rent a single"),
         "RoomType": MessageLookupByLibrary.simpleMessage("RoomType"),
-        "SaveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
-        "SelectAddress": MessageLookupByLibrary.simpleMessage("SelectAddress"),
-        "SelectYourTransport":
-            MessageLookupByLibrary.simpleMessage("Select Your Transport"),
-        "SetPassword": MessageLookupByLibrary.simpleMessage("Set Password"),
         "Settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "SingleBed": MessageLookupByLibrary.simpleMessage("Single Bed"),
         "Slogan": MessageLookupByLibrary.simpleMessage(
             "Your Second Home, Your New Life"),
-        "Taxi": MessageLookupByLibrary.simpleMessage("Taxi"),
-        "To": MessageLookupByLibrary.simpleMessage("To"),
         "TripleBed": MessageLookupByLibrary.simpleMessage("Double Bed"),
         "YourRequesthasbeensentsuccessfully":
             MessageLookupByLibrary.simpleMessage(

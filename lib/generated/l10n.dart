@@ -340,20 +340,20 @@ class S {
     );
   }
 
-  /// `Triple Bed`
+  /// `Double Bed`
   String get TripleBed {
     return Intl.message(
-      'Triple Bed',
+      'Double Bed',
       name: 'TripleBed',
       desc: '',
       args: [],
     );
   }
 
-  /// `Double Bed`
+  /// `Triple Bed`
   String get DoubleBed {
     return Intl.message(
-      'Double Bed',
+      'Triple Bed',
       name: 'DoubleBed',
       desc: '',
       args: [],
@@ -540,156 +540,6 @@ class S {
     );
   }
 
-  /// `SelectAddress`
-  String get SelectAddress {
-    return Intl.message(
-      'SelectAddress',
-      name: 'SelectAddress',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `From`
-  String get From {
-    return Intl.message(
-      'From',
-      name: 'From',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `To`
-  String get To {
-    return Intl.message(
-      'To',
-      name: 'To',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Choose On Map`
-  String get ChooseOnMap {
-    return Intl.message(
-      'Choose On Map',
-      name: 'ChooseOnMap',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Order Now`
-  String get OrderNow {
-    return Intl.message(
-      'Order Now',
-      name: 'OrderNow',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Done`
-  String get Done {
-    return Intl.message(
-      'Done',
-      name: 'Done',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Just Tap On your Desired Location !`
-  String get JustTapOnyourDesiredLocation {
-    return Intl.message(
-      'Just Tap On your Desired Location !',
-      name: 'JustTapOnyourDesiredLocation',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Select Your Transport`
-  String get SelectYourTransport {
-    return Intl.message(
-      'Select Your Transport',
-      name: 'SelectYourTransport',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Bike`
-  String get Bike {
-    return Intl.message(
-      'Bike',
-      name: 'Bike',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Car`
-  String get Car {
-    return Intl.message(
-      'Car',
-      name: 'Car',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Taxi`
-  String get Taxi {
-    return Intl.message(
-      'Taxi',
-      name: 'Taxi',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Cycle`
-  String get Cycle {
-    return Intl.message(
-      'Cycle',
-      name: 'Cycle',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Available Cars For Ride`
-  String get AvailableCarsForRide {
-    return Intl.message(
-      'Available Cars For Ride',
-      name: 'AvailableCarsForRide',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Profile`
-  String get Profile {
-    return Intl.message(
-      'Profile',
-      name: 'Profile',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Set Password`
-  String get SetPassword {
-    return Intl.message(
-      'Set Password',
-      name: 'SetPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Delete`
   String get Delete {
     return Intl.message(
@@ -705,56 +555,6 @@ class S {
     return Intl.message(
       'Are you sure you want to delete your account? Please read how account deletion will affect.Deleting your account removes personal information our database. Tour email becomes permanently reserved and same email cannot be re-use to register a new account.',
       name: 'AreYouSure',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Save Changes`
-  String get SaveChanges {
-    return Intl.message(
-      'Save Changes',
-      name: 'SaveChanges',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Enter your password`
-  String get EnterYourPassword {
-    return Intl.message(
-      'Enter your password',
-      name: 'EnterYourPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Confirm your password`
-  String get ConfirmPassword {
-    return Intl.message(
-      'Confirm your password',
-      name: 'ConfirmPassword',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Passwords Dont Match`
-  String get PasswordDontMatch {
-    return Intl.message(
-      'Passwords Dont Match',
-      name: 'PasswordDontMatch',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Password Changed Successfully`
-  String get PasswordChangedSuccessfully {
-    return Intl.message(
-      'Password Changed Successfully',
-      name: 'PasswordChangedSuccessfully',
       desc: '',
       args: [],
     );

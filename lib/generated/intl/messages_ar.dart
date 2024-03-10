@@ -27,49 +27,28 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تفاصيل السكن"),
         "AreYouSure": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد أنك تريد حذف حسابك؟ يرجى قراءة كيف سيؤثر حذف الحساب. حذف حسابك يزيل المعلومات الشخصية من قاعدة البيانات. بريدك الإلكتروني سيصبح محجوزًا بشكل دائم ولا يمكن استخدام نفس البريد الإلكتروني للتسجيل في حساب جديد"),
-        "AvailableCarsForRide":
-            MessageLookupByLibrary.simpleMessage("السيارات المتاحة للرحلة"),
         "Back": MessageLookupByLibrary.simpleMessage("رجوع"),
-        "Bike": MessageLookupByLibrary.simpleMessage("دراجة نارية"),
-        "Car": MessageLookupByLibrary.simpleMessage("سيارة"),
         "ChangeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
         "ChangePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "ChangeTheme": MessageLookupByLibrary.simpleMessage("تغيير السمة"),
-        "ChooseOnMap":
-            MessageLookupByLibrary.simpleMessage("تحديد على الخريطة"),
         "Complain": MessageLookupByLibrary.simpleMessage("الشكاوى"),
-        "ConfirmPassword":
-            MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "ContinueToHome":
             MessageLookupByLibrary.simpleMessage("متابعة إلى الصفحة الرئيسية"),
-        "Cycle": MessageLookupByLibrary.simpleMessage("دراجة"),
         "Delete": MessageLookupByLibrary.simpleMessage("حذف"),
         "DeleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "Description": MessageLookupByLibrary.simpleMessage("الوصف"),
-        "Done": MessageLookupByLibrary.simpleMessage("تم"),
         "DoubleBed": MessageLookupByLibrary.simpleMessage("غرفة ثلاثية"),
         "EGP": MessageLookupByLibrary.simpleMessage(" ج.م"),
-        "EnterYourPassword":
-            MessageLookupByLibrary.simpleMessage("ادخل كلمة المرور"),
         "FemalesOnly": MessageLookupByLibrary.simpleMessage("للبنات فقط"),
-        "From": MessageLookupByLibrary.simpleMessage("من"),
         "Hello": MessageLookupByLibrary.simpleMessage("مرحبا"),
         "HelpandSupport":
             MessageLookupByLibrary.simpleMessage("المساعدة والدعم"),
         "History": MessageLookupByLibrary.simpleMessage("تاريخ الرحلات"),
-        "JustTapOnyourDesiredLocation": MessageLookupByLibrary.simpleMessage(
-            "عليك فقط الضغط على الموقع المراد"),
         "LogOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "Login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "Malesonly": MessageLookupByLibrary.simpleMessage("للأولاد فقط"),
-        "OrderNow": MessageLookupByLibrary.simpleMessage("اطلب الآن"),
-        "PasswordChangedSuccessfully":
-            MessageLookupByLibrary.simpleMessage("تم تغيير كلمة السر بنجاح"),
-        "PasswordDontMatch":
-            MessageLookupByLibrary.simpleMessage("كلمات المرور غير متطابقة"),
         "PrivacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
-        "Profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "Referral": MessageLookupByLibrary.simpleMessage("الإحالة"),
         "RentADouble":
             MessageLookupByLibrary.simpleMessage("طلب حجز سرير في غرفة زوجية"),
@@ -78,17 +57,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "Rentasingle":
             MessageLookupByLibrary.simpleMessage("طلب حجز سرير في غرفة فردية"),
         "RoomType": MessageLookupByLibrary.simpleMessage("نوع الغرفة"),
-        "SaveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغييرات "),
-        "SelectAddress": MessageLookupByLibrary.simpleMessage("اختيار العنوان"),
-        "SelectYourTransport":
-            MessageLookupByLibrary.simpleMessage("اختر وسيلة النقل"),
-        "SetPassword": MessageLookupByLibrary.simpleMessage("اختر كلمة المرور"),
         "Settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "SingleBed": MessageLookupByLibrary.simpleMessage("غرفة مفردة"),
         "Slogan": MessageLookupByLibrary.simpleMessage(
             "منزلك الثاني , حياتك الجديدة"),
-        "Taxi": MessageLookupByLibrary.simpleMessage("تاكسي"),
-        "To": MessageLookupByLibrary.simpleMessage("إلى"),
         "TripleBed": MessageLookupByLibrary.simpleMessage("غرفة زوجية"),
         "YourRequesthasbeensentsuccessfully":
             MessageLookupByLibrary.simpleMessage("طلبك قد تم تسجيله بنجاح"),
