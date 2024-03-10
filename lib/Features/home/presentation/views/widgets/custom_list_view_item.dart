@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:sakeny/Features/favorites/data/Repos/favorites_repo.dart';
 import 'package:sakeny/Features/home/data/Models/apartment_model.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_favorite_icon.dart';
@@ -123,33 +122,6 @@ class RowOfFloatingDetails extends StatelessWidget {
                 ),
               )
             ],
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Container(
-            decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.3),
-                borderRadius: BorderRadius.circular(8)),
-            child: Row(
-              children: [
-                IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      FontAwesomeIcons.dollarSign,
-                      color: Colors.white,
-                      size: 16,
-                    )),
-                Padding(
-                  padding: const EdgeInsets.only(right: 16),
-                  child: Text(
-                    '${apartment.priceOfOneBedInDoubleBeds}',
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                )
-              ],
-            ),
           ),
         ),
       ],
