@@ -44,7 +44,7 @@ class FireBaseAPi {
     var body = {
       "message": {
         "token":
-            "fAXllIqWSz6DfjMxbilHR5:APA91bHIIW6_19Q62UjxhMi5cQAyWq25YfSOpI948IEOH5_9QtSkrJRCVPDX-4WjPCfXU9GUGgKa110U4RLQ55NaqpDBnVSYzLvA_Fqvt9Q7p_qIZUQx82eAJ0g18O8x20r3PvqhdLef",
+            "exaixdzJSXi6BX45kRCCG-:APA91bFfJAwMAY0g-EbhmYfHb9V-EjKmM6h8nf6TUWXjwLYrN2dY7QT9qtjJdxr30hJIcl2ZRazc4oz9O7kUe_ppwPw5XeKmJBS8RepjS33d_vm5KXylqbEUjkLGXpIF84aIwHYBsq3j",
         "notification": {"title": title, "body": messageBody}
       }
     };

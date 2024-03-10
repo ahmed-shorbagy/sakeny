@@ -340,20 +340,20 @@ class S {
     );
   }
 
-  /// `Double Bed`
+  /// `Triple Bed`
   String get TripleBed {
     return Intl.message(
-      'Double Bed',
+      'Triple Bed',
       name: 'TripleBed',
       desc: '',
       args: [],
     );
   }
 
-  /// `Triple Bed`
+  /// `Double Bed`
   String get DoubleBed {
     return Intl.message(
-      'Triple Bed',
+      'Double Bed',
       name: 'DoubleBed',
       desc: '',
       args: [],

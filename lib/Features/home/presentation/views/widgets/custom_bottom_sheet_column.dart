@@ -89,7 +89,7 @@ class _CustomBottomSheetColumnState extends State<CustomBottomSheetColumn> {
                             isForFemales: isForFemales,
                             isForMales: isForMales);
                   },
-                  child: Text(S.of(context).DoubleBed,
+                  child: Text(S.of(context).TripleBed,
                       style: Theme.of(context).textTheme.bodyMedium!),
                 ),
               ),
@@ -118,7 +118,7 @@ class _CustomBottomSheetColumnState extends State<CustomBottomSheetColumn> {
                             isForFemales: isForFemales,
                             isForMales: isForMales);
                   },
-                  child: Text(S.of(context).TripleBed,
+                  child: Text(S.of(context).DoubleBed,
                       style: Theme.of(context).textTheme.bodyMedium!),
                 ),
               ),

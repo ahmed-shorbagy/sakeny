@@ -32,7 +32,8 @@ class _ChangeThemeViewState extends State<ChangeThemeView> {
             title: 'Light',
             icon: Icons.light_mode,
             onTap: () {
-              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+              Provider.of<ThemeProvider>(context, listen: false)
+                  .setThemeMode(ThemeMode.light);
               setState(() {
                 lightSelected = true;
                 darkSelected = false;
@@ -47,7 +48,8 @@ class _ChangeThemeViewState extends State<ChangeThemeView> {
             title: 'Dark',
             icon: Icons.dark_mode,
             onTap: () {
-              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+              Provider.of<ThemeProvider>(context, listen: false)
+                  .setThemeMode(ThemeMode.dark);
               setState(() {
                 lightSelected = false;
                 darkSelected = true;

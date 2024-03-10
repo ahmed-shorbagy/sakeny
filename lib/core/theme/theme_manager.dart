@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:sakeny/core/theme/theme_constants.dart';
 
-class ThemeProvider extends ChangeNotifier {
-  ThemeData _themeData = lightTheme;
-  ThemeData get themeData => _themeData;
-  set themeData(ThemeData themeData) {
-    _themeData = themeData;
+class ThemeProvider with ChangeNotifier {
+  ThemeMode _themeMode = ThemeMode.system; // Default to system theme
+
+  ThemeMode get themeMode => _themeMode;
+
+  void setThemeMode(ThemeMode mode) {
+    _themeMode = mode;
     notifyListeners();
-  }
-
-  void toggleTheme() {
-    if (_themeData == lightTheme) {
-      themeData = darkTheme;
-    } else {
-      themeData = lightTheme;
-    }
   }
 }

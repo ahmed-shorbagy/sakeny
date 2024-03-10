@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sakeny/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/Custom_app_bar.dart';
-import 'package:sakeny/core/utils/App_router.dart';
 import 'package:sakeny/generated/l10n.dart';
 
 class ThankYouView extends StatelessWidget {

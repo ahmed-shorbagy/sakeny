@@ -7,6 +7,7 @@ import 'package:sakeny/Features/home/data/Repos/home_repo.dart';
 import 'package:sakeny/Features/home/presentation/manager/Language_manager/theme_manager.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
 import 'package:sakeny/core/errors/simple_bloc_observer.dart';
+import 'package:sakeny/core/theme/theme_constants.dart';
 import 'package:sakeny/core/theme/theme_manager.dart';
 import 'package:sakeny/core/utils/App_router.dart';
 import 'package:sakeny/core/utils/firebase_messaging_api.dart';
@@ -50,6 +51,7 @@ class Sakeny extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
     return BlocProvider(
       create: (context) => FetchApartmentsCubit(getIt.get<HomeRepo>()),
       child: MaterialApp.router(
@@ -61,7 +63,9 @@ class Sakeny extends StatelessWidget {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: S.delegate.supportedLocales,
-        theme: Provider.of<ThemeProvider>(context).themeData,
+        theme: lightTheme(),
+        darkTheme: darkTheme(),
+        themeMode: themeProvider.themeMode,
         debugShowCheckedModeBanner: false,
         routerConfig: AppRouter.router,
       ),

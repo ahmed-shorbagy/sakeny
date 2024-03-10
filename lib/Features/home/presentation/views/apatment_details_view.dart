@@ -38,7 +38,7 @@ class ApartmentDetailsView extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 child: RowOfApartmentDetails(
-                  title: S.of(context).DoubleBed,
+                  title: S.of(context).TripleBed,
                   numberofBeds: apartment.numberOfDoubleBeds ?? '',
                   price: apartment.priceOfOneBedInDoubleBeds ?? '',
                 ),
@@ -47,7 +47,7 @@ class ApartmentDetailsView extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 child: RowOfApartmentDetails(
-                  title: S.of(context).TripleBed,
+                  title: S.of(context).DoubleBed,
                   numberofBeds: apartment.numberOfTripleBeds ?? '',
                   price: apartment.priceOfOneBedInTripleBeds ?? '',
                 ),
