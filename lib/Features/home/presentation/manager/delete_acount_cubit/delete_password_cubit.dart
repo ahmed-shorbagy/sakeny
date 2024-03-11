@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -49,7 +47,6 @@ class DeletePasswordCubit extends Cubit<DeletePasswordState> {
 
       emit(DeletePasswordSuccess());
     } on FirebaseException catch (e) {
-      log(e.toString());
       emit(DeletePasswordFaluire(errMessage: e.code));
     }
   }

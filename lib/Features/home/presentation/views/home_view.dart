@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
@@ -44,7 +42,6 @@ class _HomeViewState extends State<HomeView> {
 
       BlocProvider.of<FetchApartmentsCubit>(context).fetchApartments(
           pageNumber: pageNumber, query: FetchApartmentsCubit.currentQuery);
-      log(pageNumber.toString());
     }
   }
 

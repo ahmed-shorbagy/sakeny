@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:sakeny/Features/home/data/Models/apartment_model.dart';
@@ -37,7 +35,6 @@ class HomeRepo {
 
       return Right(apartments);
     } on FirebaseException catch (e) {
-      log(e.toString());
       return Left(FirebaseFaluire.fromFireStore(e.code));
     }
 

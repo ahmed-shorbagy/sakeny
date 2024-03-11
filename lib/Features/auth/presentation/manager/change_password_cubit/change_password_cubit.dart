@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
@@ -16,7 +14,6 @@ class ChangePasswordCubit extends Cubit<ChangePasswordState> {
       emit(ChangePasswordSuccess());
     } on FirebaseAuthException catch (e) {
       emit(ChangePasswordFaluire(errMessage: e.code));
-      log(e.code);
     }
   }
 }

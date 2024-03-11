@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -38,7 +36,6 @@ class FavoritesRepository {
       }
       return right(apartmentId);
     } on FirebaseException catch (e) {
-      log('add favorite error: ${e.code}');
       return left(FirebaseFaluire.fromFireStore(e.code));
     }
   }
@@ -111,7 +108,6 @@ class FavoritesRepository {
         },
       );
     } on FirebaseException catch (e) {
-      log(e.toString());
       return Left(FirebaseFaluire.fromFireStore(e.code));
     }
   }

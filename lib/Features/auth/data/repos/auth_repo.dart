@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -24,7 +23,6 @@ class AuthRepo {
       );
       return Right(credential);
     } on FirebaseAuthException catch (e) {
-      log(e.code);
       return left(FirebaseFaluire.fromFirebaseAuth(e.code));
     }
   }
@@ -38,7 +36,6 @@ class AuthRepo {
       );
       return Right(credential);
     } on FirebaseAuthException catch (e) {
-      log(e.code);
       return left(FirebaseFaluire.fromFirebaseAuth(e.code));
     }
   }
@@ -62,7 +59,6 @@ class AuthRepo {
       return right(
           await FirebaseAuth.instance.signInWithCredential(credential));
     } on FirebaseAuthException catch (e) {
-      log(e.code);
       return left(FirebaseFaluire.fromFirebaseAuth(e.code));
     }
   }

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sakeny/Features/auth/data/repos/auth_repo.dart';
 import 'package:sakeny/Features/auth/presentation/manager/Google_sign_in_cubit/google_sign_in_cubit.dart';
 import 'package:sakeny/Features/auth/presentation/manager/change_password_cubit/change_password_cubit.dart';
@@ -57,6 +58,10 @@ class _SignInFormState extends State<SignInForm> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
               child: CustomUnderLineTextField(
+                suffixIcon: LottieBuilder.asset(
+                    'assets/jsons/Animation - 1710157088630.json',
+                    width: 40,
+                    height: 40),
                 label: S.of(context).email,
                 onChanged: (value) {
                   email = value;

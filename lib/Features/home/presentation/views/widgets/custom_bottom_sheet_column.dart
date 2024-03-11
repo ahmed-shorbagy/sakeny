@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_apartment_type_buttons.dart';
 import 'package:sakeny/generated/l10n.dart';
@@ -30,6 +31,9 @@ class _CustomBottomSheetColumnState extends State<CustomBottomSheetColumn> {
                 .bodyLarge!
                 .copyWith(fontWeight: FontWeight.bold),
           ),
+        ),
+        const Spacer(
+          flex: 1,
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -125,13 +129,17 @@ class _CustomBottomSheetColumnState extends State<CustomBottomSheetColumn> {
             ],
           ),
         ),
-        Divider(
-          thickness: 2,
-          indent: 10,
-          endIndent: 10,
-          color: Colors.grey.shade300,
+        const Spacer(
+          flex: 2,
         ),
-        const Spacer(),
+        LottieBuilder.asset(
+          'assets/jsons/Animation - 1710158010599.json',
+          height: 50,
+          width: 100,
+        ),
+        const Spacer(
+          flex: 1,
+        ),
       ],
     );
   }

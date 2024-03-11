@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:meta/meta.dart';
@@ -80,8 +78,6 @@ class FetchApartmentsCubit extends Cubit<FetchApartmentsState> {
       (apartmentList) {
         apartments.addAll(apartmentList);
         emit(FetchApartmentsSuccess(apartmentList));
-        log('***********************************');
-        log(types.toString());
       },
     );
   }

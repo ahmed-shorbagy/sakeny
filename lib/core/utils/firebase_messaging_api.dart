@@ -1,15 +1,10 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:http/http.dart' as http;
 
-Future<void> handleBackGroundMessage(RemoteMessage message) async {
-  log('title : ${message.notification!.title}');
-  log('body : ${message.notification!.body}');
-  log('payload : ${message.data}');
-}
+Future<void> handleBackGroundMessage(RemoteMessage message) async {}
 
 class FireBaseAPi {
   final firebaseMessaging = FirebaseMessaging.instance;
@@ -24,8 +19,7 @@ class FireBaseAPi {
       provisional: false,
       sound: true,
     );
-    final fcmToken = await firebaseMessaging.getToken();
-    log('token : $fcmToken');
+
     FirebaseMessaging.onBackgroundMessage(handleBackGroundMessage);
   }
 
@@ -54,15 +48,9 @@ class FireBaseAPi {
     req.body = json.encode(body);
 
     var res = await req.send();
-    final resBody = await res.stream.bytesToString();
 
     if (res.statusCode >= 200 && res.statusCode < 300) {
-      log('0***************************');
-      log(resBody);
-    } else {
-      log('0***************************');
-      log(res.toString());
-    }
+    } else {}
   }
 }
 
