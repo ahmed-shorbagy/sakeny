@@ -64,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "TripleBed": MessageLookupByLibrary.simpleMessage("غرفة زوجية"),
         "YourRequesthasbeensentsuccessfully":
             MessageLookupByLibrary.simpleMessage("طلبك قد تم تسجيله بنجاح"),
+        "alreadyhaveaccount":
+            MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل ؟"),
         "bottomBarFavourite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "bottomBarHome": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "bottomBarSettings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
@@ -78,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("الإسم"),
         "or": MessageLookupByLibrary.simpleMessage("أو سجل عن طريق"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
+        "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "singUp": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "tellUsAboutYourSelf":
             MessageLookupByLibrary.simpleMessage("أخبرنا أكثر عن نفسك"),
@@ -87,7 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هذا الحقل مطلوب"),
         "yourmobile":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف الخاص بك"),
-        "youwillbecontactedsoon":
-            MessageLookupByLibrary.simpleMessage("سيتم التواصل معك قريبا")
+        "youwillbecontactedsoon": MessageLookupByLibrary.simpleMessage(
+            "سيتم التواصل معك خلال 24 ساعة")
       };
 }

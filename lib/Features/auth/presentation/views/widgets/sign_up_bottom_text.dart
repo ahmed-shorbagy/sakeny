@@ -15,7 +15,7 @@ class SignUpBottomText extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 6),
-          child: Text(S.of(context).dontHaveAccount,
+          child: Text(S.of(context).alreadyhaveaccount,
               style: Theme.of(context).textTheme.bodyMedium),
         ),
         GestureDetector(
@@ -23,7 +23,7 @@ class SignUpBottomText extends StatelessWidget {
             GoRouter.of(context).pushReplacement(AppRouter.kSignInView);
           },
           child: Text(
-            S.of(context).singUp,
+            S.of(context).signIn,
             style: Theme.of(context)
                 .textTheme
                 .bodyMedium!

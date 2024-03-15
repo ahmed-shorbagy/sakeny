@@ -160,6 +160,26 @@ class S {
     );
   }
 
+  /// `Already have an account?`
+  String get alreadyhaveaccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyhaveaccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get signIn {
+    return Intl.message(
+      'Sign In',
+      name: 'signIn',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `This field is required`
   String get thisIsRequired {
     return Intl.message(

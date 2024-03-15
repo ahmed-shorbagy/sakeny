@@ -56,6 +56,7 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>CFBundleLocalizations</key>
+	<string>${سَكِّنِي}</string>
 	<array>
     <string>en</string>
     <string>ar</string>

@@ -11,6 +11,8 @@
     "dontHaveAccount": "Don't have an account?",
     "createAccount": "Create Account",
     "continuee": "Continue",
+    "alreadyhaveaccount": "Already have an account?",
+    "signIn": "Sign In",
     "thisIsRequired": "This field is required",
     "male": "Male",
     "female": "Female",

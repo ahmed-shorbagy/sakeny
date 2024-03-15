@@ -63,6 +63,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "YourRequesthasbeensentsuccessfully":
             MessageLookupByLibrary.simpleMessage(
                 "Your Request has been sent successfully"),
+        "alreadyhaveaccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "bottomBarFavourite": MessageLookupByLibrary.simpleMessage("Favourite"),
         "bottomBarHome": MessageLookupByLibrary.simpleMessage("Home"),
         "bottomBarSettings": MessageLookupByLibrary.simpleMessage("Settings"),
@@ -78,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "or": MessageLookupByLibrary.simpleMessage("or"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "singUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "tellUsAboutYourSelf":
             MessageLookupByLibrary.simpleMessage("Tell us about yourself"),

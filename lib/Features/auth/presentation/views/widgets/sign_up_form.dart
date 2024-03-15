@@ -214,7 +214,10 @@ class _SignUpFormState extends State<SignUpForm> {
                   ),
                 ),
               ),
-              const SignUpBottomText()
+              const Padding(
+                padding: EdgeInsets.only(bottom: 16),
+                child: SignUpBottomText(),
+              )
             ],
           ),
         ),

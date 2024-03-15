@@ -210,7 +210,10 @@ class _SignInFormState extends State<SignInForm> {
                 ),
               ),
             ),
-            const SignInBottomText(),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 16),
+              child: SignInBottomText(),
+            ),
           ],
         ),
       ),
