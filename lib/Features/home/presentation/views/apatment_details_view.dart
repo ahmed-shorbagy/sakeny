@@ -25,33 +25,39 @@ class ApartmentDetailsView extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: CustomImagesSlider(apartment: apartment),
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: RowOfApartmentDetails(
-                  title: S.of(context).SingleBed,
-                  numberofBeds: apartment.numberOfSingleBeds ?? '',
-                  price: apartment.priceOfOneBedInSingleBeds ?? '',
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: RowOfApartmentDetails(
-                  title: S.of(context).TripleBed,
-                  numberofBeds: apartment.numberOfDoubleBeds ?? '',
-                  price: apartment.priceOfOneBedInDoubleBeds ?? '',
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
-                child: RowOfApartmentDetails(
-                  title: S.of(context).DoubleBed,
-                  numberofBeds: apartment.numberOfTripleBeds ?? '',
-                  price: apartment.priceOfOneBedInTripleBeds ?? '',
-                ),
-              ),
+              apartment.numberOfSingleBeds == '0'
+                  ? Container()
+                  : Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 16),
+                      child: RowOfApartmentDetails(
+                        title: S.of(context).SingleBed,
+                        numberofBeds: apartment.numberOfSingleBeds ?? '',
+                        price: apartment.priceOfOneBedInSingleBeds ?? '',
+                      ),
+                    ),
+              apartment.numberOfDoubleBeds == '0'
+                  ? Container()
+                  : Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 16),
+                      child: RowOfApartmentDetails(
+                        title: S.of(context).TripleBed,
+                        numberofBeds: apartment.numberOfDoubleBeds ?? '',
+                        price: apartment.priceOfOneBedInDoubleBeds ?? '',
+                      ),
+                    ),
+              apartment.numberOfTripleBeds == '0'
+                  ? Container()
+                  : Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 16),
+                      child: RowOfApartmentDetails(
+                        title: S.of(context).DoubleBed,
+                        numberofBeds: apartment.numberOfTripleBeds ?? '',
+                        price: apartment.priceOfOneBedInTripleBeds ?? '',
+                      ),
+                    ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                 child: ExpansionTile(
