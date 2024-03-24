@@ -78,6 +78,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسيت كلمة السر ؟"),
         "male": MessageLookupByLibrary.simpleMessage("ذكر"),
         "name": MessageLookupByLibrary.simpleMessage("الإسم"),
+        "noFavorietsYet": MessageLookupByLibrary.simpleMessage(
+            "لا يوجد مفضلات قم بإضافة مفضلات لعرضها"),
         "or": MessageLookupByLibrary.simpleMessage("أو سجل عن طريق"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة السر"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),

@@ -23,10 +23,14 @@ class FavoritesView extends StatelessWidget {
           ..fetchFavorites(userId: auth.currentUser?.uid ?? ''),
         builder: (context, state) {
           if (state is FetchFavoritesSuccess) {
-            return ListView.builder(
-              itemCount: state.apartmentsList.length,
-              itemBuilder: (context, index) {
-                if (state.apartmentsList.isNotEmpty) {
+            if (state.apartmentsList.isEmpty) {
+              return Center(
+                child: Text(S.of(context).noFavorietsYet),
+              );
+            } else {
+              return ListView.builder(
+                itemCount: state.apartmentsList.length,
+                itemBuilder: (context, index) {
                   return CustomListViewItem(
                     apartment: state.apartmentsList[index],
                     onTaped: () {
@@ -35,11 +39,9 @@ class FavoritesView extends StatelessWidget {
                           extra: state.apartmentsList[index]);
                     },
                   );
-                } else {
-                  return const Center(child: Text('No favorites yet'));
-                }
-              },
-            );
+                },
+              );
+            }
           } else if (state is FetchFavoritesFaluire) {
             return Center(
               child: Text(state.erMessage),

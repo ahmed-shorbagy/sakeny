@@ -160,6 +160,16 @@ class S {
     );
   }
 
+  /// `No Favoriets Yet start adding favoriets`
+  String get noFavorietsYet {
+    return Intl.message(
+      'No Favoriets Yet start adding favoriets',
+      name: 'noFavorietsYet',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Already have an account?`
   String get alreadyhaveaccount {
     return Intl.message(
