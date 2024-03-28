@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sakeny/Features/splash/presentation/views/widgets/animated_text.dart';
 import 'package:sakeny/core/utils/App_router.dart';
+import 'package:sakeny/core/utils/firebase_messaging_api.dart';
 import 'package:sakeny/core/utils/internet_connection.dart';
 import 'package:sakeny/core/utils/size_config.dart';
 
@@ -71,9 +72,9 @@ class _SplashViewState extends State<SplashView>
     animationController.forward();
   }
 
-  checkForNetworkAndDisplayResult() {
+  checkForNetworkAndDisplayResult() async {
     _networkConnectivity.initialise();
-    _networkConnectivity.myStream.listen((source) {
+    _networkConnectivity.myStream.listen((source) async {
       _source = source;
 
       // 1.
@@ -81,6 +82,7 @@ class _SplashViewState extends State<SplashView>
         case ConnectivityResult.mobile:
         case ConnectivityResult.wifi:
           if (_source.values.toList()[0]) {
+            await AccessTokenFirbase().getAccessToken();
             // If online, navigate to the next page
             Future.delayed(const Duration(seconds: 2), () {
               var auth = FirebaseAuth.instance.currentUser;

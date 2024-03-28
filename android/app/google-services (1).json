@@ -1,0 +1,114 @@
+{
+  "project_info": {
+    "project_number": "1060918976348",
+    "project_id": "sakeny-40c01",
+    "storage_bucket": "sakeny-40c01.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060918976348:android:3bc43c8e37af75d8c5eb99",
+        "android_client_info": {
+          "package_name": "com.example.sakeny"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060918976348-13kb4ugvnvvn3gege977vd7v20hq16eu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sakeny",
+            "certificate_hash": "c196d83dc62c2a1fc7318a0a16de17f5da82fb09"
+          }
+        },
+        {
+          "client_id": "1060918976348-4ajhn7759tse2psikkj4nnti3vvev6ub.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sakeny",
+            "certificate_hash": "ad6cf327999bc22c1001578b87e88a13a16ea642"
+          }
+        },
+        {
+          "client_id": "1060918976348-kj592dgpu1grjau727rda2vgph3vbono.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sakeny",
+            "certificate_hash": "b1e436a6544c221a36cd877c705c7bc23e7ca59a"
+          }
+        },
+        {
+          "client_id": "1060918976348-kggl5rfagb99ljnmsapapftpbdg04hta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBthz6PPxMeyTtQjN6RmAPYzmZ_lz_vVW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060918976348-kggl5rfagb99ljnmsapapftpbdg04hta.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1060918976348-2ac481umd1uqbun6hd5tb22j2vd9o1af.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sakenyOwners"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060918976348:android:937565162dc51134c5eb99",
+        "android_client_info": {
+          "package_name": "com.example.sakeny_owners"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060918976348-t3hpfph934jabprb81ng0l5abjlmfu4q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sakeny_owners",
+            "certificate_hash": "ad6cf327999bc22c1001578b87e88a13a16ea642"
+          }
+        },
+        {
+          "client_id": "1060918976348-kggl5rfagb99ljnmsapapftpbdg04hta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBthz6PPxMeyTtQjN6RmAPYzmZ_lz_vVW0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060918976348-kggl5rfagb99ljnmsapapftpbdg04hta.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1060918976348-2ac481umd1uqbun6hd5tb22j2vd9o1af.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sakenyOwners"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
