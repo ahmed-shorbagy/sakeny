@@ -26,8 +26,8 @@ class _SplashViewState extends State<SplashView>
   @override
   void initState() {
     super.initState();
-    initSlidingText();
     checkForNetworkAndDisplayResult();
+    initSlidingText();
   }
 
   @override
@@ -83,6 +83,7 @@ class _SplashViewState extends State<SplashView>
         case ConnectivityResult.wifi:
           if (_source.values.toList()[0]) {
             await AccessTokenFirbase().getAccessToken();
+
             // If online, navigate to the next page
             Future.delayed(const Duration(seconds: 2), () {
               var auth = FirebaseAuth.instance.currentUser;

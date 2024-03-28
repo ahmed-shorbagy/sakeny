@@ -22,7 +22,6 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   await FireBaseAPi().initNotifications();
-  await AccessTokenFirbase().getAccessToken();
 
   setupServiceLocator();
   runApp(
