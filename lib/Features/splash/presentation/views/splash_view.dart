@@ -2,7 +2,10 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:sakeny/Features/auth/data/repos/auth_repo.dart';
+import 'package:sakeny/Features/auth/presentation/manager/check_if_user_exists_cubit/check_if_user_exists_cubit.dart';
 import 'package:sakeny/Features/splash/presentation/views/widgets/animated_text.dart';
 import 'package:sakeny/core/utils/App_router.dart';
 import 'package:sakeny/core/utils/firebase_messaging_api.dart';
@@ -18,6 +21,7 @@ class SplashView extends StatefulWidget {
 
 late AnimationController animationController;
 late Animation<Offset> slidingAnimation;
+bool isUserExist = false;
 Map _source = {ConnectivityResult.none: false};
 final NetworkConnectivity _networkConnectivity = NetworkConnectivity.instance;
 
@@ -27,7 +31,7 @@ class _SplashViewState extends State<SplashView>
   void initState() {
     super.initState();
     checkForNetworkAndDisplayResult();
-    initSlidingText();
+    initSlidingTextAndCheckUser();
   }
 
   @override
@@ -40,28 +44,37 @@ class _SplashViewState extends State<SplashView>
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Center(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(32),
-              child: Image.asset(
-                'assets/pngs/logo-color.png',
-                scale: SizeConfig.defaultSize! * 1.2,
+      body: BlocListener<CheckIfUserExistsCubit, CheckIfUserExistsState>(
+        listener: (context, state) {
+          if (state is CheckIfUserExistsSuccess) {
+            isUserExist = true;
+          } else if (state is CheckIfUserExistsFaluire) {
+            isUserExist = false;
+          }
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Center(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(32),
+                child: Image.asset(
+                  'assets/pngs/logo-color.png',
+                  scale: SizeConfig.defaultSize! * 1.2,
+                ),
               ),
             ),
-          ),
-          const Padding(
-              padding: EdgeInsets.symmetric(vertical: 16),
-              child: AnimatedText())
-        ],
+            const Padding(
+                padding: EdgeInsets.symmetric(vertical: 16),
+                child: AnimatedText())
+          ],
+        ),
       ),
     );
   }
 
-  initSlidingText() {
+  initSlidingTextAndCheckUser() async {
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
@@ -70,6 +83,8 @@ class _SplashViewState extends State<SplashView>
         Tween<Offset>(begin: const Offset(0, 6), end: Offset.zero)
             .animate(animationController);
     animationController.forward();
+    await BlocProvider.of<CheckIfUserExistsCubit>(context)
+        .checkIfUserExists(uid: auth.currentUser?.uid ?? '');
   }
 
   checkForNetworkAndDisplayResult() async {
@@ -86,11 +101,10 @@ class _SplashViewState extends State<SplashView>
 
             // If online, navigate to the next page
             Future.delayed(const Duration(seconds: 2), () {
-              var auth = FirebaseAuth.instance.currentUser;
-              if (auth == null) {
-                GoRouter.of(context).pushReplacement(AppRouter.kSignUpView);
-              } else {
+              if (isUserExist) {
                 GoRouter.of(context).pushReplacement(AppRouter.kMainView);
+              } else {
+                GoRouter.of(context).pushReplacement(AppRouter.kSignUpView);
               }
             });
           } else {

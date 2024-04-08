@@ -5,6 +5,7 @@ import 'package:sakeny/Features/auth/data/repos/auth_repo.dart';
 import 'package:sakeny/Features/auth/presentation/manager/Google_sign_in_cubit/google_sign_in_cubit.dart';
 import 'package:sakeny/Features/auth/presentation/manager/New_user_cubit/new_user_cubit.dart';
 import 'package:sakeny/Features/auth/presentation/manager/change_password_cubit/change_password_cubit.dart';
+import 'package:sakeny/Features/auth/presentation/manager/check_if_user_exists_cubit/check_if_user_exists_cubit.dart';
 import 'package:sakeny/Features/auth/presentation/manager/get_user_data_cubit/get_user_data_cubit.dart';
 import 'package:sakeny/Features/auth/presentation/manager/sign_in_with_emailandpassword_cubit/sign_in_email_password_cubit.dart';
 import 'package:sakeny/Features/auth/presentation/manager/sign_up_with_emailandpassword_cubit/sign_up_with_email_passwod_cubit.dart';
@@ -52,7 +53,10 @@ abstract class AppRouter {
   static final router = GoRouter(routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const SplashView(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => CheckIfUserExistsCubit(getIt.get<AuthRepo>()),
+        child: const SplashView(),
+      ),
     ),
     GoRoute(
       path: kMainView,

@@ -130,4 +130,22 @@ class AuthRepo {
       return left(FirebaseFaluire.fromFireStore(e.code));
     }
   }
+
+  Future<Either<Faluire, bool>> isUserInFirestore({required String uid}) async {
+    try {
+      // Reference to the "Users" collection
+      CollectionReference usersCollection =
+          FirebaseFirestore.instance.collection('Users');
+
+      // Reference to the document with the specified UID
+      DocumentSnapshot userDocument = await usersCollection.doc(uid).get();
+
+      // Check if the document exists and if the email matches
+      return right(userDocument.exists);
+    } catch (e) {
+      // Handle errors here
+
+      return const Right(false);
+    }
+  }
 }
