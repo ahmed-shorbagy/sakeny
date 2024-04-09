@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_apartment_type_buttons.dart';
+import 'package:sakeny/Features/home/presentation/views/widgets/custom_slider.dart';
 import 'package:sakeny/generated/l10n.dart';
 
 class CustomBottomSheetColumn extends StatefulWidget {
@@ -132,6 +133,7 @@ class _CustomBottomSheetColumnState extends State<CustomBottomSheetColumn> {
         const Spacer(
           flex: 2,
         ),
+        const CustomSlider(),
         LottieBuilder.asset(
           'assets/jsons/Animation - 1710158010599.json',
           height: 50,

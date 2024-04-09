@@ -7,9 +7,9 @@ class ApartmentModel {
   String? numberOfSingleBeds;
   String? numberOfDoubleBeds;
   String? numberOfTripleBeds;
-  String? priceOfOneBedInSingleBeds;
-  String? priceOfOneBedInDoubleBeds;
-  String? priceOfOneBedInTripleBeds;
+  num? priceOfOneBedInSingleBeds;
+  num? priceOfOneBedInDoubleBeds;
+  num? priceOfOneBedInTripleBeds;
   bool? isForMales;
   Timestamp? time;
   String? ownerName; // Corrected spelling
@@ -17,6 +17,28 @@ class ApartmentModel {
   String? ownerDescription;
   String? userDescription;
   List<dynamic>? type;
+
+  @override
+  String toString() {
+    return 'ApartmentModel: {'
+        ' buildingID: $buildingID,'
+        ' apartmentID: $apartmentID,'
+        ' photosUrls: $photosUrls,'
+        ' numberOfSingleBeds: $numberOfSingleBeds,'
+        ' numberOfDoubleBeds: $numberOfDoubleBeds,'
+        ' numberOfTripleBeds: $numberOfTripleBeds,'
+        ' priceOfOneBedInSingleBeds: $priceOfOneBedInSingleBeds,'
+        ' priceOfOneBedInDoubleBeds: $priceOfOneBedInDoubleBeds,'
+        ' priceOfOneBedInTripleBeds: $priceOfOneBedInTripleBeds,'
+        ' isForMales: $isForMales,'
+        ' time: $time,'
+        ' ownerName: $ownerName,'
+        ' ownerPhone: $ownerPhone,'
+        ' ownerDescription: $ownerDescription,'
+        ' userDescription: $userDescription,'
+        ' type: $type'
+        '}';
+  }
 
   ApartmentModel(
       {this.ownerName, // Corrected spelling
@@ -42,8 +64,8 @@ class ApartmentModel {
     return ApartmentModel(
       type: data['type'],
       apartmentID: snapshot.id,
-      ownerDescription: data['owenrDescription'],
-      ownerName: data['owenrName'],
+      ownerDescription: data['ownerDescription'],
+      ownerName: data['ownerName'],
       ownerPhone: data['ownerPhone'],
       userDescription: data['userDescription'],
       buildingID: data['buildingID'],

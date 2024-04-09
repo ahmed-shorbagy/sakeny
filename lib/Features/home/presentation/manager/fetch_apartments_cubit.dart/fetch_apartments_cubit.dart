@@ -37,6 +37,7 @@ class FetchApartmentsCubit extends Cubit<FetchApartmentsState> {
     required bool isTriple,
     required bool isForMales,
     required bool isForFemales,
+    num maxPrice = 1000,
   }) async {
     apartments.clear();
     HomeRepo.fetchedDocumentIds.clear();
@@ -45,26 +46,33 @@ class FetchApartmentsCubit extends Cubit<FetchApartmentsState> {
     // Start with the base query
     Query query = FirebaseFirestore.instance
         .collection('Apartments')
-        .orderBy('time', descending: true);
+        .orderBy('priceOfOneBedInDoubleBeds') // Change orderBy field
+        .orderBy('time', descending: true); // Add secondary orderBy field
 
-    // Apply filters based on selected options
+// Apply filters based on selected options
     List<String> types = [];
     if (isSingle || isDouble || isTriple) {
       if (isSingle) types.add('single');
       if (isDouble) types.add('double');
       if (isTriple) types.add('triple');
 
-      query = query.where('type',
-          arrayContainsAny:
-              types); // Using arrayContainsAny to match any selected type
+      query = query.where('type', arrayContainsAny: types);
     }
 
-    // Apply gender preference filter
+// Apply gender preference filter
     if (isForMales) {
-      query = query.where('isForMales', isEqualTo: true);
+      query = query.where(
+        'isForMales',
+        isEqualTo: true,
+      );
     } else if (isForFemales) {
       query = query.where('isForMales', isEqualTo: false);
     }
+    // Convert maxPrice to double and apply max price filter
+
+    query =
+        query.where('priceOfOneBedInDoubleBeds', isLessThanOrEqualTo: maxPrice);
+// Apply max price filter
 
     // Execute the query
     currentQuery = query;

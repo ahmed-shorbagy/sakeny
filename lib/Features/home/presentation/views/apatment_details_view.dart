@@ -33,7 +33,8 @@ class ApartmentDetailsView extends StatelessWidget {
                       child: RowOfApartmentDetails(
                         title: S.of(context).SingleBed,
                         numberofBeds: apartment.numberOfSingleBeds ?? '',
-                        price: apartment.priceOfOneBedInSingleBeds ?? '',
+                        price: (apartment.priceOfOneBedInSingleBeds ?? '')
+                            .toString(),
                       ),
                     ),
               apartment.numberOfDoubleBeds == '0'
@@ -44,7 +45,8 @@ class ApartmentDetailsView extends StatelessWidget {
                       child: RowOfApartmentDetails(
                         title: S.of(context).TripleBed,
                         numberofBeds: apartment.numberOfDoubleBeds ?? '',
-                        price: apartment.priceOfOneBedInDoubleBeds ?? '',
+                        price: (apartment.priceOfOneBedInDoubleBeds ?? '')
+                            .toString(),
                       ),
                     ),
               apartment.numberOfTripleBeds == '0'
@@ -55,7 +57,8 @@ class ApartmentDetailsView extends StatelessWidget {
                       child: RowOfApartmentDetails(
                         title: S.of(context).DoubleBed,
                         numberofBeds: apartment.numberOfTripleBeds ?? '',
-                        price: apartment.priceOfOneBedInTripleBeds ?? '',
+                        price: (apartment.priceOfOneBedInTripleBeds ?? '')
+                            .toString(),
                       ),
                     ),
               Padding(

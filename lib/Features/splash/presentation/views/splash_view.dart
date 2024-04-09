@@ -1,5 +1,4 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +6,8 @@ import 'package:go_router/go_router.dart';
 import 'package:sakeny/Features/auth/data/repos/auth_repo.dart';
 import 'package:sakeny/Features/auth/presentation/manager/check_if_user_exists_cubit/check_if_user_exists_cubit.dart';
 import 'package:sakeny/Features/splash/presentation/views/widgets/animated_text.dart';
+import 'package:sakeny/core/models/User_model.dart';
+import 'package:sakeny/core/models/user_cubit/user_cubit_cubit.dart';
 import 'package:sakeny/core/utils/App_router.dart';
 import 'package:sakeny/core/utils/firebase_messaging_api.dart';
 import 'package:sakeny/core/utils/internet_connection.dart';
@@ -45,9 +46,14 @@ class _SplashViewState extends State<SplashView>
     SizeConfig().init(context);
     return Scaffold(
       body: BlocListener<CheckIfUserExistsCubit, CheckIfUserExistsState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           if (state is CheckIfUserExistsSuccess) {
             isUserExist = true;
+            UserCubit.user = await firestore
+                .collection('Users')
+                .doc(auth.currentUser?.uid)
+                .get()
+                .then((value) => UserModel.fromFirestore(value.data()!));
           } else if (state is CheckIfUserExistsFaluire) {
             isUserExist = false;
           }
@@ -83,6 +89,7 @@ class _SplashViewState extends State<SplashView>
         Tween<Offset>(begin: const Offset(0, 6), end: Offset.zero)
             .animate(animationController);
     animationController.forward();
+
     await BlocProvider.of<CheckIfUserExistsCubit>(context)
         .checkIfUserExists(uid: auth.currentUser?.uid ?? '');
   }

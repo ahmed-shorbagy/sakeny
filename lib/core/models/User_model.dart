@@ -14,6 +14,17 @@ class UserModel {
     this.phoneNumber,
     this.isMail,
   });
+  @override
+  String toString() {
+    return 'UserModel{'
+        ' name: $name,'
+        ' email: $email,'
+        ' photoUrl: $photoUrl,'
+        ' phoneNumber: $phoneNumber,'
+        ' isMail: $isMail,'
+        ' fcmToken: $fcmToken'
+        '}';
+  }
 
   factory UserModel.fromFirestore(Map<String, dynamic> data) {
     return UserModel(

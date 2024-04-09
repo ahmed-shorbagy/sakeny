@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:sakeny/Features/home/data/Repos/home_repo.dart';
 import 'package:sakeny/Features/home/presentation/manager/Language_manager/theme_manager.dart';
 import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit.dart/fetch_apartments_cubit.dart';
+import 'package:sakeny/Features/home/presentation/views/widgets/custom_slider.dart';
 import 'package:sakeny/core/errors/simple_bloc_observer.dart';
 import 'package:sakeny/core/theme/theme_constants.dart';
 import 'package:sakeny/core/theme/theme_manager.dart';
@@ -35,6 +36,11 @@ void main() async {
         ChangeNotifierProvider<LanguageProvider>(
           create: (context) {
             return LanguageProvider();
+          },
+        ),
+        ChangeNotifierProvider<SliderValueProvider>(
+          create: (context) {
+            return SliderValueProvider();
           },
         ),
       ],

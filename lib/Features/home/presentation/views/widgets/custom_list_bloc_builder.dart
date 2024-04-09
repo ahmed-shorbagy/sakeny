@@ -61,6 +61,7 @@ class CutomListBlocBuilder extends StatelessWidget {
             ),
           );
         } else if (state is FetchApartmentsFaluire) {
+          debugPrint(state.errMessage);
           return const SliverFillRemaining(
             child: Center(
               child: Text('Oops! Something went wrong.'),

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,11 +39,14 @@ class RentalButtons extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: CustomButton(
                       onPressed: () async {
+                        log(apartment.toString());
+                        log(UserCubit.user.toString());
                         await FireBaseAPi().sendMessage(
                           title: 'new request',
                           messageBody:
                               'user ${UserCubit.user.name} has request a new bed',
                         );
+
                         RequestModel request = RequestModel(
                             apartment: apartment,
                             user: UserCubit.user,
@@ -62,6 +67,8 @@ class RentalButtons extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: CustomButton(
                       onPressed: () async {
+                        log(apartment.toString());
+                        log(UserCubit.user.toString());
                         await FireBaseAPi().sendMessage(
                           title: 'new request',
                           messageBody:
@@ -87,6 +94,8 @@ class RentalButtons extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: CustomButton(
                       onPressed: () async {
+                        log(apartment.toString());
+                        log(UserCubit.user.toString());
                         await FireBaseAPi().sendMessage(
                           title: 'new request',
                           messageBody:
