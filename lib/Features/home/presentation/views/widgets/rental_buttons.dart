@@ -42,9 +42,13 @@ class RentalButtons extends StatelessWidget {
                         log(apartment.toString());
                         log(UserCubit.user.toString());
                         await FireBaseAPi().sendMessage(
-                          title: 'new request',
+                          title: "New Request",
                           messageBody:
                               'user ${UserCubit.user.name} has request a new bed',
+                          tokens: [
+                            "dB1xPPrMRGuQ07xrhfQqrh:APA91bEPBtg6ENBvheqoL4Xr8TEc9zNAfC2qVvrk-yJplWEhvWi33Uya57-9ITQ1MuzrU_XXAho4YlUlrS6kFYK_Idmk49WiFD0qCp5o8Exp25rsfo-_Q_K6_-KrTQLWkJbsEyHaDA_r",
+                            "fusqdlN_TRqIu274RSs5EC:APA91bH4PCohWyoT6G6rq_bTDcjLwBNBJ2dFzAO4DcNtv-8YtpaYY6SYnEfqQ0FqTqNDcjjtqrJ5easAffqoLTo346du7o78KhQUn7pSUtIdY6AvyK7uJYfNLLP7U1RzvOUVC-KfRht1"
+                          ],
                         );
 
                         RequestModel request = RequestModel(
@@ -70,10 +74,15 @@ class RentalButtons extends StatelessWidget {
                         log(apartment.toString());
                         log(UserCubit.user.toString());
                         await FireBaseAPi().sendMessage(
-                          title: 'new request',
+                          title: "New Request",
                           messageBody:
                               'user ${UserCubit.user.name} has request a new bed',
+                          tokens: [
+                            "dB1xPPrMRGuQ07xrhfQqrh:APA91bEPBtg6ENBvheqoL4Xr8TEc9zNAfC2qVvrk-yJplWEhvWi33Uya57-9ITQ1MuzrU_XXAho4YlUlrS6kFYK_Idmk49WiFD0qCp5o8Exp25rsfo-_Q_K6_-KrTQLWkJbsEyHaDA_r",
+                            "fusqdlN_TRqIu274RSs5EC:APA91bH4PCohWyoT6G6rq_bTDcjLwBNBJ2dFzAO4DcNtv-8YtpaYY6SYnEfqQ0FqTqNDcjjtqrJ5easAffqoLTo346du7o78KhQUn7pSUtIdY6AvyK7uJYfNLLP7U1RzvOUVC-KfRht1"
+                          ],
                         );
+
                         RequestModel request = RequestModel(
                             apartment: apartment,
                             user: UserCubit.user,
@@ -97,10 +106,15 @@ class RentalButtons extends StatelessWidget {
                         log(apartment.toString());
                         log(UserCubit.user.toString());
                         await FireBaseAPi().sendMessage(
-                          title: 'new request',
+                          title: "New Request",
                           messageBody:
                               'user ${UserCubit.user.name} has request a new bed',
+                          tokens: [
+                            "dB1xPPrMRGuQ07xrhfQqrh:APA91bEPBtg6ENBvheqoL4Xr8TEc9zNAfC2qVvrk-yJplWEhvWi33Uya57-9ITQ1MuzrU_XXAho4YlUlrS6kFYK_Idmk49WiFD0qCp5o8Exp25rsfo-_Q_K6_-KrTQLWkJbsEyHaDA_r",
+                            "fusqdlN_TRqIu274RSs5EC:APA91bH4PCohWyoT6G6rq_bTDcjLwBNBJ2dFzAO4DcNtv-8YtpaYY6SYnEfqQ0FqTqNDcjjtqrJ5easAffqoLTo346du7o78KhQUn7pSUtIdY6AvyK7uJYfNLLP7U1RzvOUVC-KfRht1"
+                          ],
                         );
+
                         RequestModel request = RequestModel(
                             apartment: apartment,
                             user: UserCubit.user,

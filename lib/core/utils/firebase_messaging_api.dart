@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:googleapis_auth/auth_io.dart';
@@ -23,34 +24,43 @@ class FireBaseAPi {
     FirebaseMessaging.onBackgroundMessage(handleBackGroundMessage);
   }
 
-  Future<void> sendMessage(
-      {required String title, required String messageBody}) async {
-    var newAccesToken = await AccessTokenFirbase().getAccessToken();
+  Future<void> sendMessage({
+    required String title,
+    required String messageBody,
+    required List<String> tokens, // List of tokens to send the message to
+  }) async {
+    var newAccessToken = await AccessTokenFirbase().getAccessToken();
     var headersList = {
       'Accept': '*/*',
       'User-Agent': 'Thunder Client (https://www.thunderclient.com)',
-      'Authorization': 'Bearer $newAccesToken',
+      'Authorization': 'Bearer $newAccessToken',
       'Content-Type': 'application/json'
     };
     var url = Uri.parse(
         'https://fcm.googleapis.com/v1/projects/sakeny-40c01/messages:send');
 
-    var body = {
-      "message": {
-        "token":
-            "fcA3CGNGRDSD2KmM8pRjAX:APA91bF4HShKEkQaE2KTt_1s5L18HVO18puWqkB_y8F6zROfATLIPK_i0F0EJqaM3XAfCN5edBsTisqeCrOQRSqlARsesU2repInI7AP233AOzGhCtGpB4IGUp70VQ2GbxFaUSLGV_DD",
-        "notification": {"title": title, "body": messageBody}
+    for (var token in tokens) {
+      var body = {
+        "message": {
+          "notification": {"title": title, "body": messageBody},
+          "token": token, // Use token instead of tokens array
+        }
+      };
+
+      var req = http.Request('POST', url);
+      req.headers.addAll(headersList);
+      req.body = json.encode(body);
+
+      var res = await req.send();
+
+      if (res.statusCode >= 200 && res.statusCode < 300) {
+        // Successful request
+        log('Successful request for token: $token');
+      } else {
+        // Request failed
+        log('Request failed with status: ${res.reasonPhrase} for token: $token');
       }
-    };
-
-    var req = http.Request('POST', url);
-    req.headers.addAll(headersList);
-    req.body = json.encode(body);
-
-    var res = await req.send();
-
-    if (res.statusCode >= 200 && res.statusCode < 300) {
-    } else {}
+    }
   }
 }
 
