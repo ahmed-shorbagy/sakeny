@@ -37,7 +37,7 @@ class FetchApartmentsCubit extends Cubit<FetchApartmentsState> {
     required bool isTriple,
     required bool isForMales,
     required bool isForFemales,
-    num maxPrice = 1000,
+    num maxPrice = 3000,
   }) async {
     apartments.clear();
     HomeRepo.fetchedDocumentIds.clear();
