@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LanguageProvider extends ChangeNotifier {
-  String _local = 'en';
+  String _local = 'ar';
   String get local => _local;
   set local(String local) {
     _local = local;

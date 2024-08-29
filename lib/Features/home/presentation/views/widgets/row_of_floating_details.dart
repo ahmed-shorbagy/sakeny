@@ -14,26 +14,25 @@ class RowOfFloatingDetails extends StatelessWidget {
     return Row(
       children: [
         Container(
-          decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.3),
-              borderRadius: BorderRadius.circular(8)),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(8)),
           child: Row(
             children: [
-              IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.bed_sharp,
-                    color: Colors.white,
-                    size: 18,
-                  )),
               Padding(
-                padding: const EdgeInsets.only(right: 16),
+                padding: const EdgeInsets.only(right: 8),
                 child: Text(
                   '${int.parse(apartment.numberOfDoubleBeds ?? '0') + int.parse(apartment.numberOfSingleBeds ?? '0') + int.parse(apartment.numberOfTripleBeds ?? '0')} ',
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                      color: Theme.of(context).colorScheme.outline,
+                      fontWeight: FontWeight.bold),
                 ),
-              )
+              ),
+              IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.bed_sharp,
+                    color: Theme.of(context).colorScheme.outline,
+                    size: 18,
+                  )),
             ],
           ),
         ),

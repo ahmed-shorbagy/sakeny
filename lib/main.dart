@@ -17,7 +17,7 @@ import 'package:sakeny/firebase_options.dart';
 import 'package:sakeny/generated/l10n.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

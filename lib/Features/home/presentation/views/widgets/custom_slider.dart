@@ -5,7 +5,7 @@ import 'package:sakeny/Features/home/presentation/manager/fetch_apartments_cubit
 import 'package:sakeny/Features/home/presentation/views/widgets/custom_apartment_type_buttons.dart';
 
 class SliderValueProvider extends ChangeNotifier {
-  double _currentSliderValue = 3000;
+  double _currentSliderValue = 100000;
 
   double get currentSliderValue => _currentSliderValue;
 
@@ -24,8 +24,8 @@ class CustomSlider extends StatelessWidget {
         Provider.of<SliderValueProvider>(context).currentSliderValue;
 
     return Slider(
-      max: 3000,
-      divisions: 40,
+      max: 100000,
+      divisions: 200,
       activeColor: Theme.of(context).colorScheme.secondary,
       inactiveColor: Colors.grey,
       label: currentSliderValue.round().toString(),

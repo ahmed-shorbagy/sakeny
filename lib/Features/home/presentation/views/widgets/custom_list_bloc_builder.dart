@@ -7,9 +7,7 @@ import 'package:sakeny/Features/home/presentation/views/widgets/custom_list_view
 import 'package:sakeny/core/utils/App_router.dart';
 
 class CutomListBlocBuilder extends StatelessWidget {
-  const CutomListBlocBuilder({
-    super.key,
-  });
+  const CutomListBlocBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,8 @@ class CutomListBlocBuilder extends StatelessWidget {
               (context, index) {
                 if (index < FetchApartmentsCubit.apartments.length) {
                   return Padding(
-                    padding: const EdgeInsets.all(8),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     child: CustomListViewItem(
                       onTaped: () {
                         GoRouter.of(context).push(
@@ -35,40 +34,30 @@ class CutomListBlocBuilder extends StatelessWidget {
                     ),
                   );
                 } else {
-                  return null; // Return null for indexes out of range
+                  return null;
                 }
               },
               childCount: FetchApartmentsCubit.apartments.length,
             ),
           );
         } else if (state is FetchApartmentsLoading) {
-          return SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(8),
-                  child: CustomListViewItem(
-                    onTaped: () {
-                      GoRouter.of(context).push(
-                          AppRouter.kAppartmentdetailsView,
-                          extra: FetchApartmentsCubit.apartments[index]);
-                    },
-                    apartment: FetchApartmentsCubit.apartments[index],
-                  ),
-                );
-              },
-              childCount: FetchApartmentsCubit.apartments.length,
+          return const SliverFillRemaining(
+            child: Center(
+              child: CircularProgressIndicator(),
             ),
           );
         } else if (state is FetchApartmentsFaluire) {
-          debugPrint(state.errMessage);
-          return const SliverFillRemaining(
+          return SliverFillRemaining(
             child: Center(
-              child: Text('Oops! Something went wrong.'),
+              child: Text(
+                'Oops! Something went wrong.\n${state.errMessage}',
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.red),
+              ),
             ),
           );
         } else {
-          return const SliverFillRemaining(); // Placeholder for other states
+          return const SliverFillRemaining();
         }
       },
     );

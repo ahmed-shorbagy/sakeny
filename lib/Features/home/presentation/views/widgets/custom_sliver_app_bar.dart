@@ -25,7 +25,7 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar>
             onPressed: () {
               showModalBottomSheet<void>(
                   showDragHandle: true,
-                  backgroundColor: Theme.of(context).colorScheme.background,
+                  backgroundColor: Theme.of(context).colorScheme.surface,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18)),
                   transitionAnimationController: AnimationController(
@@ -34,21 +34,22 @@ class _CustomSliverAppBarState extends State<CustomSliverAppBar>
                   builder: (BuildContext context) {
                     return Container(
                       height: SizeConfig.screenhieght! * 0.3,
-                      color: Theme.of(context).colorScheme.background,
+                      color: Theme.of(context).colorScheme.surface,
                       child: const Center(
                         child: CustomBottomSheetColumn(),
                       ),
                     );
                   });
             },
-            child: const Icon(
+            child: Icon(
               Icons.tune_outlined,
+              color: Theme.of(context).colorScheme.onPrimary,
             )),
         SizedBox(
           width: SizeConfig.screenwidth! * 0.04,
         )
       ],
-      backgroundColor: Theme.of(context).colorScheme.background,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       title: Text(
         '${S.of(context).Hello}, ${UserCubit.user.name}',
